@@ -1,0 +1,268 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body, html{
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #97FF8D; 
+}
+
+::-webkit-scrollbar-track {
+    background: #EFFFE9; 
+}
+
+#form-header{
+  opacity: 1;
+  text-shadow: 0px 0px 1px #020202;
+  text-align: center;
+  font-size: 4.75rem;
+  margin-top: 150px;
+  margin-bottom: 70px;
+  user-select: none;
+  color: #FBFBFF;
+}
+
+#login {
+  border:0;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #020202;
+  outline: none;
+  margin-left: 25%;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 20px;
+
+}
+
+#password {
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #020202;
+  outline: none;
+  margin-left: 25%;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+#login-label {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  opacity: 1;
+  text-shadow: 0px 0px 1px #020202;
+  color: #FBFBFF;  
+  user-select: none;
+}
+
+#password-label {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  opacity: 1;
+  text-shadow: 0px 0px 1px #020202;
+  color: #FBFBFF;
+  user-select: none;
+}
+
+#go-to-else{
+  text-align: center;
+  transition: all 0.2s;
+  height: 20px;
+  text-decoration: none;
+  text-shadow: 0px 0px 1px #020202;
+  color: #FBFBFF;
+  font-size: 1rem;
+  margin-top: 45px;
+  user-select: none;
+}
+
+#go-to-else-container {
+  text-shadow: 0px 0px 2px #FBFBFF;  
+  text-align: center;
+}
+
+
+#go-to-else:hover {
+  color:#4ECDC4;
+  transform: translate(0px, -2px);
+  border-radius: 33px;
+  border-bottom: 5px solid #4ECDC4;
+}
+
+#go-to-else:after {
+  content: "   ✓";
+  text-decoration: none;
+  font-size: 0.2em;
+}
+
+#logreg-button-container {
+  text-align: center;
+}
+
+#logreg-form-button {
+  cursor: pointer;
+  appearance: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: Snell Roundhand, cursive;
+  border: 0;
+  border-radius:100px;
+  background-color:pink;
+  color:#020202;
+  font-size: 1rem;
+  user-select: none;
+  transition: 0.2s;
+}
+
+#logreg-form-button:hover {
+  background:#4ECDC4;
+}
+
+#label-logreg-input {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.logreg-labels {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#logreg-logo {
+  top: 20px;
+  left: 20px;
+  position: fixed;
+  text-decoration: none;
+  font-size: 2.25rem;
+  font-family: Hussar;
+  color: pink;
+  text-shadow: 0px 0px 20px #020202;
+}
+
+#logreg-logo-down {
+  position: absolute;
+  left: 5%;
+  font-size: 1rem;
+}
+
+.logreg-bg {
+  background: url(./images/images/logreg-bg.jpg); 
+  background-attachment: 22px 22px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+#logreg-form-container {
+  box-sizing: border-box;
+  background: url(./images/images/bakckground-rg-log-form.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size:cover;
+  position: absolute;  
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 500px;
+  right: 0;
+  background-color: #fafafa;
+  font-family: Snell Roundhand, cursive;
+  border-radius: 3px;
+  border-left: 2px solid #020202;
+} 
+
+#logreg-logo2 {
+  top: 93%;
+  left: 20px;
+  position: absolute;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-family: Snell Roundhand, cursive;
+  color: rgb(192, 248, 255);
+  text-shadow: 0px 0px 20px #020202;
+}
+
+#logreg-logo-down2 {
+  position: absolute;
+  left: 5%;
+  font-size: 0.2rem;
+}
+
+@media screen and (max-width: 796px) {
+  #logreg-logo {
+    z-index: 1;
+  }
+
+  #logreg-form-container {
+    width: 100vw !important;
+    height: 100% !important;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  #logreg-form-container {
+    width: 100vw !important;
+    height: 100% !important;
+  }
+
+}

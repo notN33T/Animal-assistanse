@@ -1,0 +1,23 @@
+.flash-con {
+  z-index: 1;
+  opacity: 1;
+  position: absolute;
+  height: 100px;
+  width: 500px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 68, 68);
+  animation-name: flash-message;
+  font-family: 'Bebas Neue', cursive; 
+  animation-duration: 0.2s;
+  right: 0;
+  top: calc(100vh - 100px);
+}
+
+.flash-info {
+  color: white;
+  font-size: 2rem;
+}
+
+@keyframes flash-message { from {opacity: 0} to {opacity: 1}}

@@ -1,0 +1,120 @@
+$font-for-p-txt: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',Arial, sans-serif
+$bg-color: #EFFFE9
+$def-font-col: #000000
+$font-for-titles: "Bebas Neue", cursive
+
+body
+  overflow-x: hidden
+
+.goals-с
+  display: flex
+  flex-direction: column
+  min-height: 400px
+  background-color: #EFFFE9
+
+  .goals-txt
+    cursor: default
+    position: relative
+    top: 60px
+    color: $def-font-col
+    letter-spacing: 0.1em
+    font-weight: 500
+    text-align: center
+    text-transform: uppercase
+    font-size: 2rem
+    font-family: $font-for-titles
+
+  .goals-txt:after
+    background: rgba(80,55,55,0.15)
+    content: ""
+    display: block
+    height: 6px
+    margin: 0 auto
+    width: 90px
+
+  .goals-txt:before
+    background: rgba(80,55,55,0.15)
+    content: ""
+    display: block
+    height: 6px
+    margin: 0 auto
+    margin-bottom: 5px
+    width: 90px
+
+  .goals-sl
+    padding: 0 10px
+    position: relative
+    top: 120px
+    color: $def-font-col
+    text-align: center
+    font-size: 1.7rem
+    font-family: $font-for-p-txt
+    cursor: default
+
+  .org-inf-txt
+    cursor: default
+    position: relative
+    top: 140px
+    color: $def-font-col
+    text-align: center
+    font-size: 1.1rem
+    font-family: $font-for-p-txt
+
+  .countries-c
+    width: 80%
+    margin: 0 auto
+    position: relative
+    top: 180px
+    display: grid
+    grid-template-columns: repeat(6, 2fr)
+    gap: 40px 30px
+
+    a
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 100%
+      height: 100px
+      text-decoration: none
+
+    .country
+      display: flex
+      flex-direction: column
+      align-self: center
+      justify-content: center
+      align-items: center
+      height: 80%
+      width: auto
+
+      .county-txt
+        margin-top: 5px
+        font-family: $font-for-p-txt
+        font-size: 1.2rem
+        color: $def-font-col
+
+      img
+        transition: 0.2s
+        opacity: 0.5
+        width: auto
+        height: 100%
+        border: 3px inset #000000
+        border-radius: 50px
+
+    img:hover
+      opacity: 1
+      box-shadow: 0px 0px 22px #52ff95
+      transform: translateY(-15px)
+
+@media screen and (max-width: 932px)
+  .countries-c
+    grid-template-columns: repeat(3, 2fr) !important
+  .goals-с
+    height: 700px
+
+@media screen and  (max-width:420px)
+  .countries-c
+    grid-template-columns: repeat(2, 2fr) !important
+  .goals-с
+    height: 750px
+  .goals-с .countries-c a
+    height: 60px !important

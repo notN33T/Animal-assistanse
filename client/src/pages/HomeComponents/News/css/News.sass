@@ -1,0 +1,26 @@
+
+    
+.allposts-container
+    width: 100%
+    height: 100%
+    display: grid
+    grid-template-columns: repeat(1, 20% 30%)
+    gap: 40px 30px
+    justify-content: center
+    align-items: center
+
+    .post-container:hover
+        img
+            transform: scale(1.1)
+
+    .post-container
+        justify-content:center
+        align-items:center
+        
+        .post-img
+            height:60%
+            overflow: hidden
+            img
+                width: 100%
+                height: auto
+                transition: 0.3s all ease-in-out
