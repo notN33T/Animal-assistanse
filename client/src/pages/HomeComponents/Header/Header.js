@@ -8,13 +8,12 @@ function Header() {
   const auth = useContext(AuthContext)
 
   const logoutHandler = useCallback(() => {
+    auth.logout(auth.token, auth.UserId, auth.admin)
     auth.token = null
     auth.UserId = null
     auth.admin = false
     localStorage.removeItem('userData')
   }, [])
-  console.log(auth.admin)
-  console.log(auth.token)
 
   return (
     <header className="hd-home">
@@ -29,13 +28,12 @@ function Header() {
       </div>
       <div className="nav-link2">
         <a href="/donate" className="nv-btn">Profile</a>
+        {auth.admin == "true" ? <a href="/admin" className="nv-btn">Admin</a> : null}
         <a
           onClick={logoutHandler}
           className="nv-btn"
           href="/login"
-        >Exit</a>
-        <a href="/admin" className="nv-btn">Admin</a>
-        {auth.admin == true ? <a href="/admin" className="nv-btn"></a> : null}
+        >Log out</a>
       </div>
     </header>
   )

@@ -1,7 +1,8 @@
-import React from 'react'
-import {useState, useEffect} from 'react'
-import axios from 'axios'
+import React                  from 'react'
+import axios                  from 'axios'
+import {useState, useEffect}  from 'react'
 import './css/News.css'
+
 export default function News() {
   const [newPosts, setnewPosts] = useState([])
 

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../context/AuthContext'
-import axios from 'axios'
-import Flash from './Common/InfoFlash'
+import { AuthContext }                            from '../context/AuthContext'
+import axios                                      from 'axios'
+import Flash                                      from './Common/InfoFlash'
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext)
@@ -12,9 +12,13 @@ export const AuthPage = () => {
   })
   const loginHandler = async () => {
     try {
-      axios.post('http://localhost:5000/api/login', { ...form }, { headers: { 'Authorization': `Bearer ${auth.token}` } })
-        .then(response => response.data.map(part => {
-          auth.login(part.token, part.userId, part?.admin);
+      axios.post('http://localhost:5000/api/login', 
+      { ...form }, 
+      { headers: { 'Authorization': `Bearer ${auth.token}` } })
+        .then(response => response.data.map(part => 
+          {
+          auth.login(part.token, part.userId, part.isAdmin); 
+
           if (part.message != undefined) {
             setmError(part.message)
           }
@@ -32,7 +36,7 @@ export const AuthPage = () => {
       axios.post('http://localhost:5000/api/register', { ...form })
         .then(response => 
           response.data.map(part => {
-          auth.login(part.token, part.userId);
+          auth.login(part.token, part.userId, part.isAdmin);
 
           if (part.message != undefined) {
             setmError(part.message)

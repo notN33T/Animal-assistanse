@@ -1,9 +1,9 @@
+const express     = require('express')
+const mongoose    = require('mongoose')
+const cors        = require('cors')
+const router      = require('./routes/authRouter')
+const postRouter  = require('./routes/postsRouter')
 require('dotenv').config()
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
-const router = require('./routes/authRouter')
-const postRouter = require('./routes/postsRouter')
 
 const PORT = process.env.PORT || 5000
 

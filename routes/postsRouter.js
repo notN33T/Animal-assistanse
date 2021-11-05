@@ -1,10 +1,10 @@
-const Router = require('express').Router
-const postRouter = new Router()
-const Post = require('../models/post-model')
+const Router      = require('express').Router
+const Post        = require('../models/post-model')
+const postRouter  = new Router()
 
 postRouter.get('/posts', (req, res) => {
   try {
-    Post.find({}, function (err, docs) {
+    Post.find({}, (err, docs) => {
     console.log(docs)
     res.json({posts: docs})
   })

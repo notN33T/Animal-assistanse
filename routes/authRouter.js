@@ -13,10 +13,20 @@ router.post('/login', async (req, res) => {
   }
 
   if (user) {
-    const accessToken = jwt.sign({ user }, process.env.JWT_ACCESS_SECRET, { expiresIn: '22s' })
+    const accessToken = jwt.sign({ user }, process.env.JWT_ACCESS_SECRET, { expiresIn: '24h' })
+
+    await User.findOneAndUpdate(
+      {token: user.token},
+      {token: accessToken},
+      (error, data) => {
+        error ? console.log(error) : console.log(data)
+      }
+    ).clone()
+
     res.json([{
       'token': accessToken,
       'userId': user?.id,
+      'isAdmin': user.admin,
     }])
   } else {
     res.json([{
@@ -27,13 +37,23 @@ router.post('/login', async (req, res) => {
 
 router.post('/register', async (req, res) => {
   const { email, password } = req.body
-  const condidate = await User.findOne({ email, password })
+  const condidate = await User.findOne({ email })
   if (condidate) {
     return res.json([{ 'message': 'Login alredy used' }])
   }
-  const user = new User({ email: email, password: password })
-  user.save()
+  const user = new User({ email: email, password: password, token: email, admin: false  })
+  await user.save()
   const accessToken = jwt.sign({ user }, process.env.JWT_ACCESS_SECRET, { expiresIn: '24h' })
+
+  await User.findOneAndUpdate(
+    {token: user.token},
+    {token: accessToken},
+    (error, data) => {
+      error ? console.log(error) : console.log(data)
+    }
+  ).clone()
+
+
   if (user) {
     res.json([{
       'token': accessToken,
