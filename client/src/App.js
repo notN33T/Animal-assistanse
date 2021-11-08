@@ -9,7 +9,7 @@ import './static/css/HomePage.css'
 function App() {
   const { token, login, logout, admin } = useAuth()
   const isAuthenticated = !!token
-  const routes = useRoutes(isAuthenticated)
+  const routes = useRoutes(isAuthenticated, admin)
   return (
     <AuthContext.Provider value={{
       token, login, logout, isAuthenticated, admin
