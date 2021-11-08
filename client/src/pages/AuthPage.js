@@ -65,22 +65,26 @@ export const AuthPage = () => {
       {mError == undefined ? null : < Flash info={mError} />}
       <div className="logreg-bg"></div>
       <a href="/">
-        <h1 id="logreg-logo">Animal Assistance <br /> <span id="logreg-logo-down">save nature togehter</span></h1>
+        <h1 className="logreg-logo">Animal Assistance <br /> <span className="logreg-logo-down">save nature togehter</span></h1>
       </a>
 
       {typeOfForm == 'login' ? <LoginForm form={form} changeHandler={changeHandler} loginHandler={loginHandler} changeForm={changeForm} /> : <RegisterForm form={form} changeHandler={changeHandler} registerHandler={registerHandler} changeForm={changeForm} />}
-      <h1 id="logreg-logo2"> Created by: <br /> <span id="logreg-logo-down2">Ugin PTN</span></h1>
+      <h1 className="logreg-logo2"> Created by: <br /> <span className="logreg-logo-down2">Ugin PTN</span></h1>
     </div>
   );
 }
 
+
+// Register form component
+
+
 function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
   return (
-    <div id="logreg-form-container">
-      <h1 id="form-header">Register</h1>
-      <div id="label-logreg-input">
+    <div className="logreg-form-container">
+      <h1 className="form-header">Register</h1>
+      <div className="label-logreg-input">
         <div className="logreg-labels">
-          <label htmlFor="email" id="login-label">Email</label>
+          <label htmlFor="email" className="login-label">Email</label>
         </div>
         <input
           placeholder="Введите email"
@@ -91,9 +95,9 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
           name="email"
           required />
       </div>
-      <div id="label-logreg-input">
+      <div className="label-logreg-input">
         <div className="logreg-labels">
-          <label htmlFor="password" id="password-label">Password</label>
+          <label htmlFor="password" className="password-label">Password</label>
         </div>
         <input
           placeholder="Введите пароль"
@@ -103,29 +107,34 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
           id="password"
           name="password"
           required />
-        <div id="logreg-button-container">
+        <div className="logreg-button-container">
           <button
             onClick={registerHandler}
             type="submit"
             id="logreg-form-button"
+            className="logreg-form-button"
           >Register</button>
         </div>
       </div>
-      <div id="go-to-else-container">
-        <a id="go-to-else"
+      <div className="go-to-else-container">
+        <a className="go-to-else"
           onClick={() => changeForm('login')}>Login</a>
       </div>
     </div>
   )
 }
 
+
+// Login form component
+
+
 function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
   return (
-    <div id="logreg-form-container">
-      <h1 id="form-header">Log in</h1>
-      <div id="label-logreg-input">
+    <div className="logreg-form-container">
+      <h1 className="form-header">Log in</h1>
+      <div className="label-logreg-input">
         <div className="logreg-labels">
-          <label htmlFor="email" id="login-label">Email</label>
+          <label htmlFor="email" className="login-label">Email</label>
         </div>
         <input
           placeholder="Email"
@@ -136,9 +145,9 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
           onChange={changeHandler}
           required />
       </div>
-      <div id="label-logreg-input">
+      <div className="label-logreg-input">
         <div className="logreg-labels">
-          <label htmlFor="password" id="password-label">Password</label>
+          <label htmlFor="password" className="password-label">Password</label>
         </div>
         <input
           placeholder="Password"
@@ -148,15 +157,16 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
           value={form.password}
           onChange={changeHandler}
           required />
-        <div id="logreg-button-container">
+        <div className="logreg-button-container">
           <button
             onClick={loginHandler}
             id="logreg-form-button"
+            className="logreg-form-button"
           >Login</button>
         </div>
       </div>
-      <div id="go-to-else-container">
-        <a id="go-to-else"
+      <div className="go-to-else-container">
+        <a className="go-to-else"
           onClick={() => changeForm('register')}>Register</a>
       </div>
     </div>

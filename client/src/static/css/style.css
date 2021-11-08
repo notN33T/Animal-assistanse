@@ -64,7 +64,7 @@ body {
     background: #EFFFE9; 
 }
 
-#form-header{
+.form-header{
   opacity: 1;
   text-shadow: 0px 0px 1px #020202;
   text-align: center;
@@ -98,7 +98,7 @@ body {
   margin-bottom: 20px;
 }
 
-#login-label {
+.login-label {
   font-size: 2rem;
   margin-bottom: 10px;
   opacity: 1;
@@ -107,7 +107,7 @@ body {
   user-select: none;
 }
 
-#password-label {
+.password-label {
   font-size: 2rem;
   margin-bottom: 10px;
   opacity: 1;
@@ -116,7 +116,7 @@ body {
   user-select: none;
 }
 
-#go-to-else{
+.go-to-else{
   text-align: center;
   transition: all 0.2s;
   height: 20px;
@@ -128,30 +128,30 @@ body {
   user-select: none;
 }
 
-#go-to-else-container {
+.go-to-else-container {
   text-shadow: 0px 0px 2px #FBFBFF;  
   text-align: center;
 }
 
 
-#go-to-else:hover {
+.go-to-else:hover {
   color:#4ECDC4;
   transform: translate(0px, -2px);
   border-radius: 33px;
   border-bottom: 5px solid #4ECDC4;
 }
 
-#go-to-else:after {
+.go-to-else:after {
   content: "   ✓";
   text-decoration: none;
   font-size: 0.2em;
 }
 
-#logreg-button-container {
+.logreg-button-container {
   text-align: center;
 }
 
-#logreg-form-button {
+.logreg-form-button {
   cursor: pointer;
   appearance: none;
   padding: 10px;
@@ -166,11 +166,11 @@ body {
   transition: 0.2s;
 }
 
-#logreg-form-button:hover {
+.logreg-form-button:hover {
   background:#4ECDC4;
 }
 
-#label-logreg-input {
+.label-logreg-input {
   display: flex;
   flex-direction: column;
 }
@@ -182,7 +182,7 @@ body {
   text-align: center;
 }
 
-#logreg-logo {
+.logreg-logo {
   top: 20px;
   left: 20px;
   position: fixed;
@@ -193,7 +193,7 @@ body {
   text-shadow: 0px 0px 20px #020202;
 }
 
-#logreg-logo-down {
+.logreg-logo-down {
   position: absolute;
   left: 5%;
   font-size: 1rem;
@@ -212,7 +212,7 @@ body {
   z-index: -1;
 }
 
-#logreg-form-container {
+.logreg-form-container {
   box-sizing: border-box;
   background: url(./images/images/bakckground-rg-log-form.jpg);
   background-attachment: fixed;
@@ -230,7 +230,7 @@ body {
   border-left: 2px solid #020202;
 } 
 
-#logreg-logo2 {
+.logreg-logo2 {
   top: 93%;
   left: 20px;
   position: absolute;
@@ -241,18 +241,18 @@ body {
   text-shadow: 0px 0px 20px #020202;
 }
 
-#logreg-logo-down2 {
+.logreg-logo-down2 {
   position: absolute;
   left: 5%;
-  font-size: 0.2rem;
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 796px) {
-  #logreg-logo {
+  .logreg-logo {
     z-index: 1;
   }
 
-  #logreg-form-container {
+  .logreg-form-container {
     width: 100vw !important;
     height: 100% !important;
   }
@@ -260,7 +260,7 @@ body {
 }
 
 @media screen and (max-width: 500px) {
-  #logreg-form-container {
+  .logreg-form-container {
     width: 100vw !important;
     height: 100% !important;
   }
