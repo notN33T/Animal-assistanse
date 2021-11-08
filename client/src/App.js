@@ -15,6 +15,7 @@ function App() {
       token, login, logout, isAuthenticated, admin
     }}> 
       <Router>  
+        {console.log(typeof routes)}
         <div className="app-container">
           {routes}
         </div>

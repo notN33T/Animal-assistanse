@@ -24,7 +24,6 @@ function Header() {
       </div>
       <div className="nav-link2">
         <Link to="/profile" className="nv-btn">Profile</Link>
-        {console.log(auth.admin)}
         {auth.admin == true ? <Link to="/admin" className="nv-btn">Admin</Link> : null}
         <a
           onClick={logoutHandler}
