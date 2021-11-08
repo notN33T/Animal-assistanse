@@ -5,7 +5,6 @@ const postRouter  = new Router()
 postRouter.get('/posts', (req, res) => {
   try {
     Post.find({}, (err, docs) => {
-    console.log(docs)
     res.json({posts: docs})
   })
 
@@ -19,7 +18,6 @@ postRouter.get('/posts', (req, res) => {
 
 postRouter.post('/createPost', async (req, res) => {
   const { img, title, text } = req.body
-  console.log(img, title, text)
   const candidate = await Post.findOne({ img, title, text })
 
   if (!candidate) {

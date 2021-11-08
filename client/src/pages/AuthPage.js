@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext }                            from '../context/AuthContext'
 import axios                                      from 'axios'
+
 import Flash                                      from './Common/InfoFlash'
 
 export const AuthPage = () => {
@@ -10,6 +11,7 @@ export const AuthPage = () => {
   const [form, setForm] = useState({
     email: '', password: ''
   })
+
   const loginHandler = async () => {
     try {
       axios.post('http://localhost:5000/api/login', 
@@ -17,7 +19,7 @@ export const AuthPage = () => {
       { headers: { 'Authorization': `Bearer ${auth.token}` } })
         .then(response => response.data.map(part => 
           {
-          auth.login(part.token, part.userId, part.isAdmin); 
+          auth.login(part.token, part.isAdmin); 
 
           if (part.message != undefined) {
             setmError(part.message)
@@ -36,7 +38,7 @@ export const AuthPage = () => {
       axios.post('http://localhost:5000/api/register', { ...form })
         .then(response => 
           response.data.map(part => {
-          auth.login(part.token, part.userId, part.isAdmin);
+          auth.login(part.token, part.isAdmin);
 
           if (part.message != undefined) {
             setmError(part.message)
