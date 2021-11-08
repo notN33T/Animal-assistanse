@@ -7,7 +7,8 @@ class UserService {
     async login(req, res, next) {
         try {
             const { email, password } = req.body
-            const user = await User.findOne({ email, password })
+            const hashedPassword = await bcrypt.hash(password, 15);
+            const user = await User.findOne({ email, hashedPassword })
 
             if (!user) {
                 return res.json([{ message: "No such user" }])
@@ -41,9 +42,9 @@ class UserService {
         if(candidate) {
             return res.json([{ message: "User alredy exist"}])
         }
-
-        const user = new User({ email: email, password: password, admin: false, token: email })
-        const accessToken = TokenService.createToken({email: email})
+        const hashedPassword = await bcrypt.hash(password, 15);
+        const user = new User({ email: email, password: hashedPassword, admin: false, token: email })
+        const accessToken = TokenService.createToken({email: email, password: hashedPassword})
 
         await User.findOneAndUpdate(
             {token: user.email},
