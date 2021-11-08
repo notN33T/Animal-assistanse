@@ -1,4 +1,4 @@
-import React from 'react'
+import React              from 'react'
 import './info-flash.css'
 
 export default function InfoFlash({info}) {

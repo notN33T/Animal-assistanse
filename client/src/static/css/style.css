@@ -218,12 +218,13 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
-  position: absolute;  
+  position: relative;  
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: 500px;
   right: 0;
+  left: calc(100% - 500px);
   background-color: #fafafa;
   font-family: Snell Roundhand, cursive;
   border-radius: 3px;
@@ -253,7 +254,7 @@ body {
   }
 
   .logreg-form-container {
-    width: 100vw !important;
+    width: 100% !important;
     height: 100% !important;
   }
 
@@ -261,7 +262,7 @@ body {
 
 @media screen and (max-width: 500px) {
   .logreg-form-container {
-    width: 100vw !important;
+    width: 100% !important;
     height: 100% !important;
   }
 

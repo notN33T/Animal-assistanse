@@ -1,8 +1,8 @@
-import React, {useState, useEffect}            from 'react';
+import React                        from 'react';
 import { useAuth }                  from './hooks/auth.hook'
 import { AuthContext }              from './context/AuthContext'
 import { useRoutes }                from './routes'
-import { BrowserRouter as Router }  from "react-router-dom";
+import { BrowserRouter as Router }  from "react-router-dom"
 import './static/css/style.css'
 import './static/css/HomePage.css'
 

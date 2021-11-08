@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext }                            from '../context/AuthContext'
+import React, { useContext, useState }            from 'react'
+import { AuthContext }                            from '../../context/AuthContext'
 import axios                                      from 'axios'
+import Flash                                      from '../Common/InfoFlash'
 
-import Flash                                      from './Common/InfoFlash'
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext)
