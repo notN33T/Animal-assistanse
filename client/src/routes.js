@@ -4,6 +4,7 @@ import HomePage                     from './pages/HomeComponents/HomePage'
 import AdminPage                     from './pages/AdminComponents/AdminPage'
 import { Switch, Route, Redirect }  from "react-router-dom";
 
+
 export const useRoutes = (isAuthenticated, admin) => {
   if (isAuthenticated) {
     return (
