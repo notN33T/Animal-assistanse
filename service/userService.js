@@ -38,10 +38,12 @@ class UserService {
     
     async register(req, res, next) {
         const {email, password} = req.body
+
         const candidate = await User.findOne({ email })
         if(candidate) {
             return res.json([{ message: "User alredy exist"}])
         }
+
         const hashedPassword = await bcrypt.hash(password, 15);
         const user = new User({ email: email, password: hashedPassword, admin: false, token: email })
         const accessToken = TokenService.createToken({email: email, password: hashedPassword})
