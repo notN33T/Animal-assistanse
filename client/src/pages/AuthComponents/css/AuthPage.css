@@ -1,11 +1,165 @@
+body {
+  overflow: hidden;
+}
+
 .logreg-bg {
   background: url(./media/logreg-bg.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;
+  position: absolute;
   height: 100%;
   width: 100%;
   opacity: 1;
   z-index: -1;
+}
+
+.logreg-form-container {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 335px;
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ffffff;
+  -webkit-box-shadow: -2px 0px 2px #000000;
+          box-shadow: -2px 0px 2px #000000;
+}
+.logreg-form-container .go-to-else {
+  cursor: pointer;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 5px;
+}
+.logreg-form-container .go-to-else:hover {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.logreg-form-container button {
+  background: #6F43D6;
+  color: #ffffff;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  width: 100%;
+  padding: 5%;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+.logreg-form-container .hdn-logo {
+  display: none;
+  position: absolute;
+  top: 80px;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.8rem;
+  line-height: 1.1rem;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  color: #000000;
+  cursor: default;
+}
+.logreg-form-container .hdn-logo span {
+  font-size: 1rem;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 0rem;
+}
+.logreg-form-container .form-header {
+  font-family: "Bebas Neue", cursive;
+  color: #000000;
+  font-size: 1.3rem;
+  letter-spacing: 0.05rem;
+  padding-top: 100px;
+  margin-bottom: 30px;
+  cursor: default;
+}
+.logreg-form-container .input-c {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.logreg-form-container .input-c input {
+  width: 100%;
+  font-size: 1rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  padding: 1.3rem;
+  margin: 15px 0px;
+  background-color: #ffffff;
+  border: 0px solid #000000;
+  border-radius: 2px;
+  outline: 1px solid #000000;
+  cursor: default;
+}
+.logreg-form-container .input-c input:focus {
+  border: 0px;
+}
+
+.logreg-logo {
+  position: absolute;
+  margin: 70px 0px 0px 70px;
+  font-size: 2rem;
+  font-family: "Bebas Neue", cursive;
+  line-height: 1rem;
+  letter-spacing: 0.2rem;
+  color: #ffffff;
+}
+.logreg-logo span {
+  font-size: 1rem;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 0rem;
+}
+
+.logreg-cr {
+  position: absolute;
+  bottom: 0px;
+  margin: 0px 0px 70px 70px;
+  font-size: 1.3rem;
+  letter-spacing: 0.03rem;
+  line-height: 1rem;
+  color: #ffffff;
+  font-family: "Bebas Neue", cursive;
+  cursor: default;
+}
+.logreg-cr span {
+  font-size: 1rem;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 740px) {
+  .logreg-form-container {
+    padding: 20%;
+    width: 60%;
+    height: 100%;
+    margin: 0px auto;
+    overflow: scroll;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .logreg-form-container .hdn-logo {
+    display: block !important;
+  }
+
+  .logreg-logo, .logreg-cr {
+    display: none !important;
+  }
 }

@@ -80,11 +80,13 @@ export const AuthPage = () => {
 function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
   return (
     <div className="logreg-form-container">
-      <h1 className="form-header">Register</h1>
-      <div className="label-logreg-input">
-        <label htmlFor="email" className="login-label">Email</label>
+        <h1 className="hdn-logo">Animal Assistance 
+        <br /> <span className="logreg-logo-down">save nature togehter</span>
+        </h1>
+      <h1 className="form-header">New on our site?</h1>
+      <div className="input-c">
         <input
-          placeholder="Введите email"
+          placeholder="Input your email"
           value={form.email}
           onChange={changeHandler}
           type="text"
@@ -92,24 +94,21 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
           name="email"
           required />
       </div>
-      <div className="label-logreg-input">
-        <label htmlFor="password" className="password-label">Password</label>
+      <div className="input-c">
         <input
-          placeholder="Введите пароль"
+          placeholder="Input your password"
           value={form.password}
           onChange={changeHandler}
           type="password"
           id="password"
           name="password"
           required />
-        <div className="logreg-button-container">
           <button
             onClick={registerHandler}
             type="submit"
             id="logreg-form-button"
             className="logreg-form-button"
           >Register</button>
-        </div>
       </div>
       <div className="go-to-else-container">
         <a className="go-to-else"
@@ -122,15 +121,16 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
 
 // Login form component
 
-
 function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
   return (
     <div className="logreg-form-container">
-      <h1 className="form-header">Log in</h1>
-      <div className="label-logreg-input">
-        <label htmlFor="email" className="login-label">Email</label>
+        <h1 className="hdn-logo">Animal Assistance 
+        <br /> <span className="logreg-logo-down">save nature togehter</span>
+        </h1>
+      <h1 className="form-header">Welcome back</h1>
+      <div className="input-c">
         <input
-          placeholder="Email"
+          placeholder="Input your email"
           type="text"
           id="login"
           name="email"
@@ -138,23 +138,20 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
           onChange={changeHandler}
           required />
       </div>
-      <div className="label-logreg-input">
-        <label htmlFor="password" className="password-label">Password</label>
+      <div className="input-c">
         <input
-          placeholder="Password"
+          placeholder="Input your password"
           type="password"
           id="password"
           name="password"
           value={form.password}
           onChange={changeHandler}
           required />
-        <div className="logreg-button-container">
           <button
             onClick={loginHandler}
             id="logreg-form-button"
             className="logreg-form-button"
-          >Login</button>
-        </div>
+          >Sign in</button>
       </div>
       <div className="go-to-else-container">
         <a className="go-to-else"

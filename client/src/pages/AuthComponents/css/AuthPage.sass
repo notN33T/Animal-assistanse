@@ -1,10 +1,147 @@
+$font-for-p-txt: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',Arial, sans-serif
+$bg-color: #ffffff
+$def-font-col: #000000
+$font-for-titles: "Bebas Neue", cursive
+$btn-log-color: #6F43D6
+      
+body
+  overflow: hidden
+
 .logreg-bg 
   background: url(./media/logreg-bg.jpg)
   background-attachment: fixed
   background-repeat: no-repeat
   background-size: cover
-  position: fixed
+  position: absolute
   height: 100%
   width: 100%
   opacity: 1
   z-index: -1
+
+.logreg-form-container
+  position: absolute
+  right: 0
+  height: 100%
+  width: 335px
+  padding: 40px
+  display: flex
+  flex-direction: column
+  align-items: center
+  background-color: $bg-color
+  box-shadow: -2px 0px 2px #000000
+
+  .go-to-else
+    cursor: pointer
+    border-bottom: 1px solid #000000
+    padding-bottom: 5px
+
+  .go-to-else:hover 
+    transition: 0.5s
+
+  button
+    background: $btn-log-color
+    color: $bg-color
+    font-family: $font-for-titles
+    font-size: 1.2rem
+    margin: 20px 0
+    width: 100%
+    padding: 5%
+    cursor: pointer
+    border: none
+    border-radius: 5px
+    
+
+  .hdn-logo
+    display: none
+    position: absolute 
+    top: 80px
+    font-family: $font-for-titles
+    font-size: 1.8rem
+    line-height: 1.1rem
+    letter-spacing: 0.05rem
+    text-align: center
+    color: $def-font-col
+    cursor: default
+
+    span
+      font-size: 1rem
+      font-family: $font-for-titles
+      letter-spacing: 0rem
+
+  .form-header
+    font-family: $font-for-titles
+    color: $def-font-col
+    font-size: 1.3rem
+    letter-spacing: 0.05rem
+    padding-top: 100px
+    margin-bottom: 30px
+    cursor: default
+  
+  .input-c
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+
+    input
+      width: 100%
+      font-size: 1rem
+      font-family: $font-for-p-txt
+      padding: 1.3rem
+      margin: 15px 0px
+      background-color: $bg-color
+      border: 0px solid $def-font-col
+      border-radius: 2px
+      outline: 1px solid $def-font-col
+      cursor: default
+    
+
+    input:focus
+      border: 0px
+
+.logreg-logo
+  position: absolute
+  margin: 70px 0px 0px 70px
+  font-size: 2rem
+  font-family: $font-for-titles
+  line-height: 1rem
+  letter-spacing: 0.2rem
+  color: $bg-color
+
+  span
+    font-size: 1rem
+    font-family: $font-for-titles
+    letter-spacing: 0rem
+
+
+
+.logreg-cr
+  position: absolute
+  bottom: 0px
+  margin: 0px 0px 70px 70px
+  font-size: 1.3rem
+  letter-spacing: 0.03rem
+  line-height: 1rem
+  color: $bg-color
+  font-family: $font-for-titles
+  cursor: default
+  span
+    font-size: 1rem
+    font-family: $font-for-titles
+    letter-spacing: 0.1rem
+
+@media screen and (max-width: 740px) 
+  .logreg-form-container
+    padding: 20%
+    width:60%
+    height: 100%
+    margin: 0px auto
+    overflow: scroll
+    box-shadow: none
+
+    .hdn-logo
+      display: block !important
+
+  .logreg-logo, .logreg-cr
+    display: none !important

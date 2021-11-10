@@ -35,6 +35,3 @@ const start = async () => {
 }
 
 start()
-
-
-// const cookieparser = require('cookieparser')
