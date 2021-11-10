@@ -4,9 +4,6 @@ $def-font-col: #000000
 $font-for-titles: "Bebas Neue", cursive
 $btn-log-color: #6F43D6
       
-body
-  overflow: hidden
-
 .logreg-bg 
   background: url(./media/logreg-bg.jpg)
   background-attachment: fixed
@@ -21,9 +18,9 @@ body
 .logreg-form-container
   position: absolute
   right: 0
-  height: 100%
+  height: calc(100% - 40px)
   width: 335px
-  padding: 40px
+  padding: 40px 40px 0px 40px
   display: flex
   flex-direction: column
   align-items: center
