@@ -2,7 +2,7 @@ import React, { useContext, useState }            from 'react'
 import { AuthContext }                            from '../../context/AuthContext'
 import axios                                      from 'axios'
 import Flash                                      from '../Common/InfoFlash'
-
+import './css/AuthPage.css'
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext)
@@ -61,15 +61,14 @@ export const AuthPage = () => {
   }
 
   return (
-    <div className="App" key="editor2">
+    <div className="App">
       {mError == undefined ? null : < Flash info={mError} />}
       <div className="logreg-bg"></div>
       <a href="/">
         <h1 className="logreg-logo">Animal Assistance <br /> <span className="logreg-logo-down">save nature togehter</span></h1>
       </a>
-
       {typeOfForm == 'login' ? <LoginForm form={form} changeHandler={changeHandler} loginHandler={loginHandler} changeForm={changeForm} /> : <RegisterForm form={form} changeHandler={changeHandler} registerHandler={registerHandler} changeForm={changeForm} />}
-      <h1 className="logreg-logo2"> Created by: <br /> <span className="logreg-logo-down2">Ugin PTN</span></h1>
+      <h1 className="logreg-cr"> Created by: <br /> <span className="logreg-cr-down">Ugin PTN</span></h1>
     </div>
   );
 }
@@ -83,9 +82,7 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
     <div className="logreg-form-container">
       <h1 className="form-header">Register</h1>
       <div className="label-logreg-input">
-        <div className="logreg-labels">
-          <label htmlFor="email" className="login-label">Email</label>
-        </div>
+        <label htmlFor="email" className="login-label">Email</label>
         <input
           placeholder="Введите email"
           value={form.email}
@@ -96,9 +93,7 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
           required />
       </div>
       <div className="label-logreg-input">
-        <div className="logreg-labels">
-          <label htmlFor="password" className="password-label">Password</label>
-        </div>
+        <label htmlFor="password" className="password-label">Password</label>
         <input
           placeholder="Введите пароль"
           value={form.password}
@@ -133,9 +128,7 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
     <div className="logreg-form-container">
       <h1 className="form-header">Log in</h1>
       <div className="label-logreg-input">
-        <div className="logreg-labels">
-          <label htmlFor="email" className="login-label">Email</label>
-        </div>
+        <label htmlFor="email" className="login-label">Email</label>
         <input
           placeholder="Email"
           type="text"
@@ -146,9 +139,7 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
           required />
       </div>
       <div className="label-logreg-input">
-        <div className="logreg-labels">
-          <label htmlFor="password" className="password-label">Password</label>
-        </div>
+        <label htmlFor="password" className="password-label">Password</label>
         <input
           placeholder="Password"
           type="password"
