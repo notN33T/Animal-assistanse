@@ -7,11 +7,16 @@ class UserService {
     async login(req, res, next) {
         try {
             const { email, password } = req.body
-            const hashedPassword = await bcrypt.hash(password, 15);
-            const user = await User.findOne({ email, hashedPassword })
+            const user = await User.findOne({ email })
 
             if (!user) {
                 return res.json([{ message: "No such user" }])
+            }
+
+            const exist = await bcrypt.compare(password, user.password)
+            console.log(exist)
+            if (!exist) {
+                return res.json([{ message: "Wrong password" }])
             }
             
             const accessToken = TokenService.createToken({email: user.email}) 
