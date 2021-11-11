@@ -1,3 +1,5 @@
+// This file is consist of 2 components (login, register) and main component with logic AuthPage
+
 import React, { useContext, useState }            from 'react'
 import { AuthContext }                            from '../../context/AuthContext'
 import axios                                      from 'axios'
@@ -178,7 +180,3 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm, mError }) {
 }
 
 export default AuthPage;
-
-// useEffect - after full renderring the page
-// useState - set defoult state, that saves on react
-// useContext - global storage for different varriables
