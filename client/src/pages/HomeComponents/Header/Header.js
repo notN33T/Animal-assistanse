@@ -29,7 +29,7 @@ function Header() {
           onClick={logoutHandler}
           className="nv-btn"
           href="/login"
-        >Log out</a>
+        >Leave</a>
       </div>
     </header>
   )

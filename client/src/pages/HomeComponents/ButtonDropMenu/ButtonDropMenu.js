@@ -18,7 +18,7 @@ const ButtonDropMenu = () => {
         <a href="/about" className="men-btn">About</a>
         <a href="/donate" className="men-btn">Donate</a>
         <a href="/profile" className="men-btn">Profile</a>
-        <a href="/logout" className="men-btn">Exit</a>
+        <a href="/logout" className="men-btn">Leave</a>
       </div>
     )
   }

@@ -86,7 +86,7 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
       <h1 className="form-header">New on our site?</h1>
       <div className="input-c">
         <input
-          placeholder="Input your email"
+          placeholder="Enter email"
           value={form.email}
           onChange={changeHandler}
           type="text"
@@ -96,7 +96,7 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
       </div>
       <div className="input-c">
         <input
-          placeholder="Input your password"
+          placeholder="Enter password"
           value={form.password}
           onChange={changeHandler}
           type="password"
@@ -108,11 +108,11 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
             type="submit"
             id="logreg-form-button"
             className="logreg-form-button"
-          >Register</button>
+          >Sign up</button>
       </div>
       <div className="go-to-else-container">
         <a className="go-to-else"
-          onClick={() => changeForm('login')}>Login</a>
+          onClick={() => changeForm('login')}>Have account?</a>
       </div>
     </div>
   )
@@ -130,7 +130,7 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
       <h1 className="form-header">Welcome back</h1>
       <div className="input-c">
         <input
-          placeholder="Input your email"
+          placeholder="Enter email"
           type="text"
           id="login"
           name="email"
@@ -140,7 +140,7 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
       </div>
       <div className="input-c">
         <input
-          placeholder="Input your password"
+          placeholder="Enter password"
           type="password"
           id="password"
           name="password"
@@ -155,7 +155,7 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
       </div>
       <div className="go-to-else-container">
         <a className="go-to-else"
-          onClick={() => changeForm('register')}>Register</a>
+          onClick={() => changeForm('register')}>Create account</a>
       </div>
     </div>
   )
