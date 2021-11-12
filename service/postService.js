@@ -1,5 +1,6 @@
 const Post        = require('../models/post-model')
 
+
 class PostService {
     getAllPosts(req, res, next) {
         try {
@@ -16,11 +17,11 @@ class PostService {
     }
 
     async createPost(req, res, next) {
-        const { img, title, text } = req.body
-        const candidate = await Post.findOne({ img, title, text })
+        const { img, title, mainText } = req.body
+        const candidate = await Post.findOne({ img, title, mainText })
       
         if (!candidate) {
-          const post = new Post({ img, title, text })
+          const post = new Post({ img, title, mainText })
           post.save()
       
         } else {

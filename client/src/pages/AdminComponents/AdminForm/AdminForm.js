@@ -1,18 +1,31 @@
-import React, {useState, useCallback}   from 'react'
+import React, {useState}                from 'react'
 import upImg                            from './media/upload-image.png'
+import Header                           from '../HeaderAdmin/Header'
 import './css/admin-form.css'
-
 export default function AdminForm() {
     const [form, setForm] = useState({
         title:'', mainText:'', img:''
     })
+    const [file, setFile] = useState(null)
 
     const changeHandler = event => {
+        if (event.target.name == 'img') {
+            let img = event.target.value
+            let splitimg = img.split("\\")
+            img = splitimg[splitimg.length - 1]
+            setForm({ ...form, [event.target.name]: img })
+            const file = event.target.files[0]
+            setFile(file)
+            return
+        }
         setForm({ ...form, [event.target.name]: event.target.value })
     }
 
     return(
+        <>
+        <Header form={form} file={file}/>
         <div className="adm-form-c">
+        {console.log(form.img)}
             <div className="image-input-c">
                 <label htmlFor="input-file">
                 <div className="img-text-c">
@@ -27,15 +40,21 @@ export default function AdminForm() {
                 </div>
                 </label>
                 
-                <input type="file" name="img" id="input-file" className="input-img"/>
+                <input 
+                    type="file" 
+                    name="img" 
+                    id="input-file" 
+                    className="input-img"
+                    onChange={changeHandler}
+                />
             </div>
             <textarea 
                 type="text" 
                 name="title" 
                 placeholder="Title" 
-                class="input_title"
+                className="input_title"
                 id="title" 
-                maxlength="84" 
+                maxLength="84" 
                 required
                 value={form.title}
                 onChange={changeHandler}
@@ -46,14 +65,14 @@ export default function AdminForm() {
                 name="mainText" 
                 placeholder="Text of the post" 
                 id="mainText" 
-                class="input__post-text"
-                maxlength="4800"
+                className="input__post-text"
+                maxLength="4800"
                 required
                 value={form.mainText}
                 onChange={changeHandler}
             />
         </div>
-        
+        </>
     )
 
 

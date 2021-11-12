@@ -6,12 +6,9 @@ import AdminForm                      from './AdminForm/AdminForm'
 import './css/Admin.css'
 
 export default function AdminPage() {
-    const [mError, setmError] = useState(undefined)
-    
 
     return(
         <div className="adm-pg-c">
-            <Header/>
             <AdminForm/>
         </div>
     )

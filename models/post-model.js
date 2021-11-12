@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const PostSchema = new Schema({
   title: { type: String, required: true },
-  text: { type: String, required: true },
+  mainText: { type: String, required: true },
   img: { type: String, required: true },
 }, {
   writeConcern: {

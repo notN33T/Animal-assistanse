@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/api', router);
-app.use('/apistuff', postRouter);
+app.use('/apiposts', postRouter);
 
 const start = async () => {
   try {
