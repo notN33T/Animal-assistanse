@@ -46,6 +46,15 @@ body {
   color: #000000;
   cursor: default;
 }
+.adm-pg-c header .admin-hdr .hd-prt-1 h1 a {
+  outline: none;
+  text-decoration: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.adm-pg-c header .admin-hdr .hd-prt-1 h1 a:hover {
+  color: #0000007a;
+}
 .adm-pg-c header .admin-hdr .hd-prt-1 h1 .pg-inf {
   color: #00000085;
   margin-left: 20px;
@@ -84,4 +93,17 @@ body {
 .adm-pg-c header .admin-hdr .hd-prt-2 button:hover {
   background-color: #0c7009;
   cursor: pointer;
+}
+
+@media screen and (max-width: 554px) {
+  .hd-prt-1 h1 {
+    margin-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }

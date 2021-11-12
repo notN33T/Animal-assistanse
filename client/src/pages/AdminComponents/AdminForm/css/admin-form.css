@@ -8,6 +8,29 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.adm-form-c .input_title:focus {
+  border-left: 1px solid #0000003d;
+}
+.adm-form-c .input_title {
+  height: 75px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  border-left: 0px;
+  border: 0;
+  outline: 0;
+  resize: none;
+}
+.adm-form-c .input__post-text {
+  height: 700px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  border: 0;
+  border-left: 0px;
+  resize: none;
+  outline: 0;
+}
 .adm-form-c .image-input-c {
   margin-bottom: 40px;
   display: -webkit-box;
@@ -34,11 +57,13 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.adm-form-c .image-input-c label .img-text-c:hover {
-  padding: 5px;
-  margin: 5px;
+.adm-form-c .image-input-c label .img-text-c:hover .text-upl-c {
+  border-right: 7px solid #000000;
+  border-left: 0px solid #000000;
 }
 .adm-form-c .image-input-c label .img-text-c {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,10 +77,6 @@
   background-color: #006983;
   border-radius: 30px;
   cursor: pointer;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
 }
 .adm-form-c .image-input-c label .img-text-c .text-upl-c {
   display: -webkit-box;
@@ -69,7 +90,11 @@
           align-items: center;
   height: 60px;
   padding: 10px;
-  border-left: 2px solid #000000;
+  border-left: 7px solid #000000;
+  border-right: 7px solid #006983;
+  border-radius: 20px;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
 }
 .adm-form-c .image-input-c label .img-text-c .text-upl-c .upl-p {
   font-family: "Rajdhani", sans-serif;

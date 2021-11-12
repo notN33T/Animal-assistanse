@@ -8,7 +8,32 @@ $colorGreenLight: #97ff8d
     margin: 40px 25% 0px 25%
     display: flex
     flex-direction: column
-        
+
+    .input_title:focus
+        border-left: 1px solid #0000003d
+
+    .input_title
+        height: 75px
+        padding: 10px
+        margin-bottom: 20px
+        font-size: 2rem
+        border-left: 0px
+        border: 0
+        outline: 0
+        resize: none
+
+    .input__post-text:focus
+
+    .input__post-text
+        height: 700px
+        padding: 10px
+        margin-bottom: 20px
+        font-size: 1.3rem
+        border: 0
+        border-left: 0px
+        resize: none
+        outline: 0
+    
     .image-input-c
         margin-bottom: 40px 
         display: flex
@@ -24,10 +49,12 @@ $colorGreenLight: #97ff8d
             align-items: center
 
             .img-text-c:hover
-                padding: 5px
-                margin: 5px
+                .text-upl-c
+                    border-right: 7px solid #000000
+                    border-left: 0px solid #000000
 
             .img-text-c
+                box-sizing: border-box
                 display: flex
                 justify-content: center
                 align-items: center
@@ -35,8 +62,6 @@ $colorGreenLight: #97ff8d
                 background-color: $hoverNavColor
                 border-radius: 30px
                 cursor: pointer
-                box-sizing: border-box
-                transition: 0.2s
                 
 
                 .text-upl-c
@@ -45,8 +70,10 @@ $colorGreenLight: #97ff8d
                     align-items: center
                     height: 60px
                     padding: 10px
-                    border-left: 2px solid #000000
-                    
+                    border-left: 7px solid #000000
+                    border-right: 7px solid $hoverNavColor
+                    border-radius: 20px
+                    transition: 0.1s
 
                     .upl-p
                         font-family: 'Rajdhani', sans-serif
