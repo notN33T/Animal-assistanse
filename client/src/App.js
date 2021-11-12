@@ -1,21 +1,20 @@
-import React                        from 'react';
-import { useAuth }                  from './hooks/auth.hook'
-import { AuthContext }              from './context/AuthContext'
-import { useRoutes }                from './routes'
-import { BrowserRouter as Router }  from "react-router-dom"
+import React, {useState, useCallback}   from 'react';
+import { useAuth }                    from './hooks/auth.hook'
+import { AuthContext }                from './context/AuthContext'
+import { useRoutes }                  from './routes'
+import { BrowserRouter as Router }    from "react-router-dom"
 import './static/css/style.css'
 import './static/css/HomePage.css'
 
 function App() {
   const { token, login, logout, admin } = useAuth()
   const isAuthenticated = !!token
-  const routes = useRoutes(isAuthenticated, admin)
+  const routes = useRoutes(isAuthenticated, admin)  
   return (
     <AuthContext.Provider value={{
       token, login, logout, isAuthenticated, admin
     }}> 
       <Router>  
-        {console.log(typeof routes)}
         <div className="app-container">
           {routes}
         </div>
@@ -24,4 +23,3 @@ function App() {
   );
 }
 export default App;
-

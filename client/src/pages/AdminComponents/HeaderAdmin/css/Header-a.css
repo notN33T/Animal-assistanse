@@ -1,0 +1,73 @@
+body {
+  background-color: #ffffff;
+}
+
+.adm-pg-c {
+  background-color: #ffffff;
+}
+.adm-pg-c header {
+  background-color: #ffffff;
+}
+.adm-pg-c header .admin-hdr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 65px;
+  width: 60%;
+  background-color: #ffffff;
+  margin: 0 20%;
+}
+.adm-pg-c header .admin-hdr .hd-prt-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 65px;
+}
+.adm-pg-c header .admin-hdr .hd-prt-1 h1 {
+  color: #000000;
+  font-family: "Rajdhani", sans-serif;
+}
+.adm-pg-c header .admin-hdr .hd-prt-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 65px;
+}
+.adm-pg-c header .admin-hdr .hd-prt-2 button {
+  height: 25px;
+  width: 90px;
+  font-size: 1rem;
+  font-family: "Rajdhani", sans-serif;
+  color: #F3F9F3;
+  outline: none;
+  border: 0px;
+  border-radius: 15px;
+  background-color: #1A8917;
+}

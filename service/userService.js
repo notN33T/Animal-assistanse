@@ -14,7 +14,7 @@ class UserService {
             }
 
             const exist = await bcrypt.compare(password, user.password)
-            console.log(exist)
+            
             if (!exist) {
                 return res.json([{ message: "Wrong password" }])
             }

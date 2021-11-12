@@ -13,7 +13,7 @@ export default function InfoFlash({info}) {
         console.log("User spamming")
       }
 
-    }, 3000)
+    }, 2000)
   },
   [])
   return (

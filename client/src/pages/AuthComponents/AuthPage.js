@@ -23,17 +23,16 @@ export const AuthPage = () => {
           {
           auth.login(part.token, part.isAdmin); 
 
-          if (part.message != undefined) {
-            setmError(part.message)
-            setTimeout(() => {setmError(undefined)}, 4000)
-          }
+          if (part.message == undefined) return
+          setmError(part.message)
+          setTimeout(() => {setmError(undefined)}, 2050)
         }))
 
         .catch(function (error) {
           console.log("on login");
         })
 
-    } catch (e) { console.log("error") }
+    } catch (e) { console.log("error loginHandler") }
   }
 
   const registerHandler = async () => {
@@ -43,13 +42,12 @@ export const AuthPage = () => {
           response.data.map(part => {
           auth.login(part.token, part.isAdmin);
 
-          if (part.message != undefined) {
-            setmError(part.message)
-          }
+          if (part.message == undefined) return
+          setmError(part.message)
         }))
 
         .catch(function (error) {
-          console.log(error);
+          console.log(error + "\n\nOn registerHandler");
         });
 
     } catch (e) { console.log(e) }

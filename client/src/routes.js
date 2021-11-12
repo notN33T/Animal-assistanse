@@ -1,9 +1,8 @@
-import React                        from 'react';
-import AuthPage                     from './pages/AuthComponents/AuthPage'
-import HomePage                     from './pages/HomeComponents/HomePage'
-import AdminPage                     from './pages/AdminComponents/AdminPage'
-import { Switch, Route, Redirect }  from "react-router-dom";
-
+import React, {useState, useEffect}   from 'react';
+import AuthPage                       from './pages/AuthComponents/AuthPage'
+import HomePage                       from './pages/HomeComponents/HomePage'
+import AdminPage                      from './pages/AdminComponents/AdminPage'
+import { Switch, Route, Redirect }    from "react-router-dom";
 
 export const useRoutes = (isAuthenticated, admin) => {
   if (isAuthenticated) {
