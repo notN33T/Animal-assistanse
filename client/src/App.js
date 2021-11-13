@@ -11,7 +11,7 @@ function App() {
   const { token, login, logout, admin, ready } = useAuth()
   const isAuthenticated = !!token
   const routes = useRoutes(isAuthenticated, admin)  
-  if (!ready){
+  if (!!ready){
     return (
       <AuthContext.Provider value={{
         token, login, logout, isAuthenticated, admin
