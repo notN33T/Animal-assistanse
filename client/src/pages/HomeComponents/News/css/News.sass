@@ -1,26 +1,135 @@
 
-    
+.news-title
+    margin: 100px 0px
+    font-size: 3rem
+    text-align: center
+    font-family: "Rajdhani", sans-serif
+
 .allposts-container
+    margin-bottom: 160px
     width: 100%
-    height: 100%
+    height: 1600px
     display: grid
-    grid-template-columns: repeat(1, 20% 30%)
-    gap: 40px 30px
+    grid-template-columns: repeat(1, 300px 300px 300px 300px)
+    grid-template-rows: repeat(1, 400px 350px 400px 350px)
+    gap: 15px 10px
     justify-content: center
     align-items: center
+    overflow: hidden
+    @media screen and (max-width: 1474px)
+        grid-template-columns: repeat(1, 200px 200px 200px 200px)
+    @media screen and (max-width: 864px)
+        grid-template-columns: repeat(4, 150px)
+    @media screen and (max-width: 652px)
+        grid-template-columns: repeat(4, 120px)
+    @media screen and (max-width: 548px) 
+        grid-template-columns: repeat(1, 90%)
+        grid-template-rows: repeat(9, 300px)
+        height: 100%
+        .post__wrapper
+            grid-row-start: auto !important
+            grid-column-start: auto !important
+            grid-column-end: auto !important
+
+        
+    
+
+    
+
+
+
 
     .post-container:hover
-        img
-            transform: scale(1.1)
+        transform: scale(1.1)
+
+        .post-text
+            padding-bottom: 50px
+            padding-left: 20px
+
+    .grid-item-7:hover, .grid-item-8:hover
+        .post-text
+            padding-left: 40px
+
+    .post__wrapper
+        height: 100%
+        overflow: hidden
+        border-radius: 10px
 
     .post-container
-        justify-content:center
-        align-items:center
+        position: relative
+        transition: all 0.2s
+        height: 100%
+        background-repeat: no-repeat
+        background-size: cover
+        background-position: center
         
-        .post-img
-            height:60%
-            overflow: hidden
-            img
-                width: 100%
-                height: auto
-                transition: 0.3s all ease-in-out
+        .post-text
+            width: 100%
+            display: flex
+            justify-content: flex-start
+            position: absolute
+            bottom: 0
+            right: 0
+            box-sizing: border-box
+            padding: 0 15px 30px 15px
+            color: #fff
+            background-color: #000000 
+            transition: all 0.2s
+
+            .post-title
+                position: relative
+                bottom: 0
+                right: -20px
+                padding: 10px 15px 10px 15px
+                background-color: #000000 
+    .grid-item-1
+        grid-row-start: 1
+        grid-column-start: 1
+        grid-column-end: 3
+    .grid-item-2
+        grid-row-start: 1
+        grid-column-start: 3
+        grid-column-end: 3
+    .grid-item-3
+        grid-row-start: 1
+        grid-column-start: 4
+        grid-column-end: 5
+    .grid-item-4
+        grid-row-start: 2
+        grid-column-start: 1
+        grid-column-end: 3
+
+        .post-text
+            justify-content: center
+            position: absolute
+            bottom: 0
+            right: 0
+            box-sizing: border-box
+            padding: 0 15px 30px 15px
+            color: #fff
+            transition: all 0.2s
+
+            .post-title
+                position: relative
+                padding: 10px 15px 10px 15px
+                
+    .grid-item-5
+        grid-row-start: 2
+        grid-column-start: 3
+        grid-column-end: 5
+    .grid-item-6
+        grid-row-start: 3
+        grid-column-start: 1
+        grid-column-end: 1
+    .grid-item-7
+        grid-row-start: 3
+        grid-column-start: 2
+        grid-column-end: 5
+    .grid-item-8
+        grid-row-start: 4
+        grid-column-start: 1
+        grid-column-end: 4
+    .grid-item-9
+        grid-row-start: 4
+        grid-column-start: 4
+        grid-column-end: 5

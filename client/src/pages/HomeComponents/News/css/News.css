@@ -1,29 +1,243 @@
+.news-title {
+  margin: 100px 0px;
+  font-size: 3rem;
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+}
+
 .allposts-container {
+  margin-bottom: 160px;
   width: 100%;
-  height: 100%;
+  height: 1600px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 20% 30px 30%;
-  grid-template-columns: repeat(1, 20% 30%);
-  gap: 40px 30px;
+  -ms-grid-columns: 300px 10px 300px 10px 300px 10px 300px;
+  grid-template-columns: repeat(1, 300px 300px 300px 300px);
+  -ms-grid-rows: 400px 15px 350px 15px 400px 15px 350px;
+  grid-template-rows: repeat(1, 400px 350px 400px 350px);
+  gap: 15px 10px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
 }
-.allposts-container .post-container:hover img {
+
+.allposts-container > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+@media screen and (max-width: 1474px) {
+  .allposts-container {
+    -ms-grid-columns: (200px 200px 200px 200px)[1];
+    grid-template-columns: repeat(1, 200px 200px 200px 200px);
+  }
+}
+@media screen and (max-width: 864px) {
+  .allposts-container {
+    -ms-grid-columns: (150px)[4];
+    grid-template-columns: repeat(4, 150px);
+  }
+}
+@media screen and (max-width: 652px) {
+  .allposts-container {
+    -ms-grid-columns: (120px)[4];
+    grid-template-columns: repeat(4, 120px);
+  }
+}
+@media screen and (max-width: 548px) {
+  .allposts-container {
+    -ms-grid-columns: (90%)[1];
+    grid-template-columns: repeat(1, 90%);
+    -ms-grid-rows: (300px)[9];
+    grid-template-rows: repeat(9, 300px);
+    height: 100%;
+  }
+  .allposts-container > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .allposts-container > *:nth-child(2) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+  .allposts-container > *:nth-child(3) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  .allposts-container > *:nth-child(4) {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+  }
+  .allposts-container > *:nth-child(5) {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+  }
+  .allposts-container > *:nth-child(6) {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+  }
+  .allposts-container > *:nth-child(7) {
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+  }
+  .allposts-container > *:nth-child(8) {
+    -ms-grid-row: 8;
+    -ms-grid-column: 1;
+  }
+  .allposts-container > *:nth-child(9) {
+    -ms-grid-row: 9;
+    -ms-grid-column: 1;
+  }
+  .allposts-container .post__wrapper {
+    -ms-grid-row: auto !important;
+        grid-row-start: auto !important;
+    -ms-grid-column: auto !important;
+        grid-column-start: auto !important;
+    -ms-grid-column-span: NaN !important;
+    grid-column-end: auto !important;
+  }
+}
+.allposts-container .post-container:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
-.allposts-container .post-container .post-img {
-  height: 60%;
-  overflow: hidden;
+.allposts-container .post-container:hover .post-text {
+  padding-bottom: 50px;
+  padding-left: 20px;
 }
-.allposts-container .post-container .post-img img {
+.allposts-container .grid-item-7:hover .post-text, .allposts-container .grid-item-8:hover .post-text {
+  padding-left: 40px;
+}
+.allposts-container .post__wrapper {
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.allposts-container .post-container {
+  position: relative;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.allposts-container .post-container .post-text {
   width: 100%;
-  height: auto;
-  -webkit-transition: 0.3s all ease-in-out;
-  transition: 0.3s all ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 15px 30px 15px;
+  color: #fff;
+  background-color: #000000;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.allposts-container .post-container .post-text .post-title {
+  position: relative;
+  bottom: 0;
+  right: -20px;
+  padding: 10px 15px 10px 15px;
+  background-color: #000000;
+}
+.allposts-container .grid-item-1 {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-span: 2;
+  grid-column-end: 3;
+}
+.allposts-container .grid-item-2 {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  -ms-grid-column-span: 0;
+  grid-column-end: 3;
+}
+.allposts-container .grid-item-3 {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-column: 4;
+      grid-column-start: 4;
+  -ms-grid-column-span: 1;
+  grid-column-end: 5;
+}
+.allposts-container .grid-item-4 {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-span: 2;
+  grid-column-end: 3;
+}
+.allposts-container .grid-item-4 .post-text {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 15px 30px 15px;
+  color: #fff;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.allposts-container .grid-item-4 .post-text .post-title {
+  position: relative;
+  padding: 10px 15px 10px 15px;
+}
+.allposts-container .grid-item-5 {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  -ms-grid-column-span: 2;
+  grid-column-end: 5;
+}
+.allposts-container .grid-item-6 {
+  -ms-grid-row: 3;
+      grid-row-start: 3;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-span: 0;
+  grid-column-end: 1;
+}
+.allposts-container .grid-item-7 {
+  -ms-grid-row: 3;
+      grid-row-start: 3;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-column-span: 3;
+  grid-column-end: 5;
+}
+.allposts-container .grid-item-8 {
+  -ms-grid-row: 4;
+      grid-row-start: 4;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-span: 3;
+  grid-column-end: 4;
+}
+.allposts-container .grid-item-9 {
+  -ms-grid-row: 4;
+      grid-row-start: 4;
+  -ms-grid-column: 4;
+      grid-column-start: 4;
+  -ms-grid-column-span: 1;
+  grid-column-end: 5;
 }

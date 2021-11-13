@@ -46,6 +46,15 @@ body {
   color: #000000;
   cursor: default;
 }
+.adm-pg-c header .admin-hdr .hd-prt-1 h1 .anim_span {
+  font-size: 1.5rem;
+  -webkit-animation-name: lowerspan;
+          animation-name: lowerspan;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
 .adm-pg-c header .admin-hdr .hd-prt-1 h1 a {
   outline: none;
   text-decoration: none;
@@ -105,5 +114,21 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+}
+@-webkit-keyframes lowerspan {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes lowerspan {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

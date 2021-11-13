@@ -37,13 +37,53 @@ $colorGreenLight: #97ff8d
     .image-input-c
         margin-bottom: 40px 
         display: flex
+        flex-direction: column
         justify-content: center
         align-items: center
+        
+        .prev__img-c
+            margin: 20px 0
+            display: flex
+            width: 50%
+            border-radius: 150px
+            justify-content: center
+            align-items: center
+            cursor: pointer
+            transition: all 0.2s
+
+            
+                
+
+            &:before
+                opacity: 0
+                content: "Delete image?"
+                text-transform: uppercase
+                position: absolute
+                transition: all 0.2s
+                font-family: "Rajdhani", sans-serif
+                font-size: 2rem
+
+        .prev__img-c:hover
+            .prev__img
+                opacity: 0.5
+            &:before
+                opacity: 2
+                
+
+
+        .prev__img
+            border-radius: 150px
+            width: 100%
+            height: auto
+
+            
+
 
         input
             display: none
 
         label
+            z-index: 1
             display: flex
             justify-content: center
             align-items: center
@@ -90,3 +130,7 @@ $colorGreenLight: #97ff8d
 
         .input-img
             visibility: hidden
+
+@media screen and (max-width:900px)
+    .prev__img-c
+        width: 100% !important

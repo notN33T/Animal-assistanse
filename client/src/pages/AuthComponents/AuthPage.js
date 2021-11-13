@@ -44,6 +44,7 @@ export const AuthPage = () => {
 
           if (part.message == undefined) return
           setmError(part.message)
+          setTimeout(() => {setmError(undefined)}, 2050)
         }))
 
         .catch(function (error) {

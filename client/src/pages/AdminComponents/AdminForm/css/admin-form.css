@@ -36,6 +36,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -43,10 +47,49 @@
       -ms-flex-align: center;
           align-items: center;
 }
+.adm-form-c .image-input-c .prev__img-c {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  border-radius: 150px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.adm-form-c .image-input-c .prev__img-c:before {
+  opacity: 0;
+  content: "Delete image?";
+  text-transform: uppercase;
+  position: absolute;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2rem;
+}
+.adm-form-c .image-input-c .prev__img-c:hover .prev__img {
+  opacity: 0.5;
+}
+.adm-form-c .image-input-c .prev__img-c:hover:before {
+  opacity: 2;
+}
+.adm-form-c .image-input-c .prev__img {
+  border-radius: 150px;
+  width: 100%;
+  height: auto;
+}
 .adm-form-c .image-input-c input {
   display: none;
 }
 .adm-form-c .image-input-c label {
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,4 +154,10 @@
 }
 .adm-form-c .image-input-c .input-img {
   visibility: hidden;
+}
+
+@media screen and (max-width: 900px) {
+  .prev__img-c {
+    width: 100% !important;
+  }
 }
