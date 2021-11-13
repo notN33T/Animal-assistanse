@@ -4,8 +4,7 @@ import { AuthContext }                from '../context/AuthContext'
 import { useRoutes }                  from '../router/routes'
 import { BrowserRouter as Router }    from 'react-router-dom'
 import Loading                        from '../pages/Common/Loading/Loading'
-import '../static/css/style.css'
-import '../static/css/HomePage.css'
+import '../static/css/reset.css'
 
 function App() {
   const { token, login, logout, admin, ready } = useAuth()
