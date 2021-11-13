@@ -1,8 +1,8 @@
-import React from 'react'
+import React                from 'react'
+import telegram             from "./media/telegram.png"
+import vk                   from "./media/vk.png"
+import facebook             from "./media/facebook.png"
 import './css/Footer.css'
-import telegram from "./media/telegram.png"
-import vk from "./media/vk.png"
-import facebook from "./media/facebook.png"
 
 export default function Footer() {
   return (

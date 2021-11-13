@@ -1,4 +1,4 @@
-import React, {useEffect, useState}          from 'react'
+import React, {useEffect}     from 'react'
 import './info-flash.css'
 
 export default function InfoFlash({info}) {

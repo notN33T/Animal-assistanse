@@ -1,7 +1,4 @@
-import React, { useState }            from 'react'
-import axios                          from 'axios'
-import Flash                          from '../Common/InfoFlash'
-import Header                         from './HeaderAdmin/Header'
+import React                          from 'react'
 import AdminForm                      from './AdminForm/AdminForm'
 import './css/Admin.css'
 

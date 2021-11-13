@@ -10,11 +10,13 @@ export default function AdminForm() {
     const [prevImg, setPrevImg] = useState(null)
     const [file, setFile] = useState(null)
     const [ready, setReady] = useState(false)
+    
     useEffect(() => {
         setReady(true)
     })
+
     const changeHandler = event => {
-        if (event.target.name == 'img') {
+        if (event.target.name === 'img') {
             let img = event.target.value
             let splitimg = img.split("\\")
             img = splitimg[splitimg.length - 1]

@@ -1,7 +1,7 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faListUl } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
+import React, { useState }      from 'react'
+import { FontAwesomeIcon }      from '@fortawesome/react-fontawesome'
+import { faListUl }             from '@fortawesome/free-solid-svg-icons'
+import { Link }                   from 'react-router-dom'
 
 const ButtonDropMenu = () => {
   const [dropdownOpen, setOpen] = useState(false);
@@ -14,11 +14,11 @@ const ButtonDropMenu = () => {
         <button onClick={toggle}>
           <FontAwesomeIcon icon={faListUl} />
         </button>
-        <a href="/" className="men-btn">Home</a>
-        <a href="/about" className="men-btn">About</a>
-        <a href="/donate" className="men-btn">Donate</a>
-        <a href="/profile" className="men-btn">Profile</a>
-        <a href="/logout" className="men-btn">Leave</a>
+        <Link to="/" className="men-btn">Home</Link>
+        <Link to="/about" className="men-btn">About</Link>
+        <Link to="/donate" className="men-btn">Donate</Link>
+        <Link to="/profile" className="men-btn">Profile</Link>
+        <Link to="/logout" className="men-btn">Leave</Link>
       </div>
     )
   }

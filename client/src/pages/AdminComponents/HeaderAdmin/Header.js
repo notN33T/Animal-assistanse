@@ -37,11 +37,3 @@ export default function Header({form, file}) {
         </header>
     )
 }
-
-function ErrFlash() {
-    return(
-        <div>
-
-        </div>
-    )
-}

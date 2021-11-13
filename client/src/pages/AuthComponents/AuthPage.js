@@ -23,13 +23,13 @@ export const AuthPage = () => {
           {
           auth.login(part.token, part.isAdmin); 
 
-          if (part.message == undefined) return
+          if (part.message === undefined) return
           setmError(part.message)
           setTimeout(() => {setmError(undefined)}, 2050)
         }))
 
         .catch(function (error) {
-          console.log("on login");
+          console.log(error, "on login");
         })
 
     } catch (e) { console.log("error loginHandler") }
@@ -42,7 +42,7 @@ export const AuthPage = () => {
           response.data.map(part => {
           auth.login(part.token, part.isAdmin);
 
-          if (part.message == undefined) return
+          if (part.message === undefined) return
           setmError(part.message)
           setTimeout(() => {setmError(undefined)}, 2050)
         }))
@@ -68,7 +68,7 @@ export const AuthPage = () => {
       <a href="/">
         <h1 className="logreg-logo">Animal Assistance <br /> <span className="logreg-logo-down">save nature togehter</span></h1>
       </a>
-      {typeOfForm == 'login' 
+      {typeOfForm === 'login' 
         ? <LoginForm 
           form={form} 
           changeHandler={changeHandler} 
