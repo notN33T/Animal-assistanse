@@ -1,0 +1,68 @@
+.loading__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading__container img {
+    height: 15%;
+    animation-name: loading;
+    animation-duration: 3s;
+    animation-iteration-count: infinite
+}
+
+.loading__container h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.5rem;
+    margin-top: 50px;
+}
+
+
+h1 .dot3 {
+    animation-name: dot3;
+    animation-duration: 2s;
+    animation-iteration-count: infinite
+
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+      }
+    
+      to {
+        transform: rotate(360deg);
+      }
+}
+
+@keyframes dot1 {
+    from {
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+      }
+}
+
+@keyframes dot2 {
+    from {
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+      }
+}
+
+@keyframes dot3 {
+    from {
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+      }
+}

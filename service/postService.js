@@ -5,7 +5,15 @@ class PostService {
     getAllPosts(req, res, next) {
         try {
             Post.find({}, (err, docs) => {
-            res.json({posts: docs})
+
+            let allPosts = []
+
+            for(let i = 0; i < docs.length && i<9; i++ ) {
+              allPosts.push(docs[i])
+            }
+            
+            allPosts.reverse()
+            res.json({posts: allPosts})
           })
         
           } catch (err) {
