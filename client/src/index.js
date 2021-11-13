@@ -1,9 +1,9 @@
 import React              from 'react';
 import ReactDOM           from 'react-dom';
-import App                from './App';
-import reportWebVitals    from './reportWebVitals';
-import * as serviceWorker from './serviceWorker';
-import './index.css';
+import App                from './AppComponent/App';
+import reportWebVitals    from './cr-react-app-files/reportWebVitals';
+import * as serviceWorker from './cr-react-app-files/serviceWorker';
+import './static/css/index.css';
 
 ReactDOM.render(
   <App />,
