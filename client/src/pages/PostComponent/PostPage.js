@@ -38,7 +38,7 @@ export default function PostPage() {
 
         <div className="post-main-text__c">
             <p>
-                {post.mainText}
+                {post.mainText.replace(/\n/g, '\n\n')}
             </p>
         </div>
     </>

@@ -20,7 +20,7 @@ function Header() {
       <div className="nav-link1">
         <Link to="/" className="nv-btn">Home</Link>
         <Link to="/about" className="nv-btn">About</Link>
-        <Link to="" className="nv-btn">Donate</Link>
+        <Link to="/donate" className="nv-btn">Donate</Link>
       </div>
         {auth.isAuthenticated ? 
       <div className="nav-link2">

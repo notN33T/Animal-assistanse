@@ -4,8 +4,11 @@
     font-size: 3rem
     text-align: center
     font-family: "Rajdhani", sans-serif
+    cursor: default
+    
 
 .allposts-container
+    box-sizing: border-box
     margin-bottom: 160px
     width: 100%
     display: grid
@@ -14,7 +17,12 @@
     gap: 15px 10px
     justify-content: center
     align-items: center
+    padding: 80px 0
+    border: 6px dashed #000000
+    border-left: 0
+    border-right: 0
     overflow: hidden
+    
     @media screen and (max-width: 1474px)
         grid-template-columns: repeat(1, 200px 200px 200px 200px)
     @media screen and (max-width: 864px)
@@ -35,12 +43,15 @@
         transform: scale(1.1)
 
         .post-text
-            padding-bottom: 50px
+            padding-bottom: 100px
             padding-left: 30px
         .post-title
     .grid-item-7:hover, .grid-item-8:hover
         .post-text
             padding-left: 40px
+    .grid-item-9:hover
+        .post-text
+            padding-bottom: 200px
 
     .post__wrapper
         height: 100%
@@ -99,6 +110,10 @@
         grid-row-start: 1
         grid-column-start: 4
         grid-column-end: 5
+        .post-text
+            padding-bottom: 60px
+            p
+                font-size: 1.7rem
     .grid-item-4
         grid-row-start: 2
         grid-column-start: 1
@@ -115,6 +130,10 @@
         grid-row-start: 2
         grid-column-start: 3
         grid-column-end: 5
+        .post-text
+            padding-bottom: 100px
+            p
+                font-size: 1.7rem
     .grid-item-6
         grid-row-start: 3
         grid-column-start: 1
@@ -135,7 +154,7 @@
         .post-text
             padding-top: 30px
             height: 100%
-            align-items: flex-start
+            align-items: center
             background: none
             p
                 background: none !important
@@ -144,7 +163,11 @@
         grid-row-start: 4
         grid-column-start: 1
         grid-column-end: 4
+        .post-text
+            padding-bottom: 90px
     .grid-item-9
         grid-row-start: 4
         grid-column-start: 4
         grid-column-end: 5
+        .post-text
+            padding-bottom: 50%

@@ -1,0 +1,59 @@
+.pg404__c {
+    height: 100vh;
+    width: 100vw;
+    min-width: 300px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Bebas Neue", cursive;
+    background-color: rgb(163, 163, 163);
+    cursor: default;
+    user-select: none;
+}
+
+.text__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.text__container p {
+    color: #160000;
+    font-size: 1.5rem;
+    text-shadow: 0 0 2px #a3a3a3;
+}
+
+.text__container .error__p {
+    font-size: 15rem;
+    letter-spacing: -20px;
+}
+
+.firs-err__span {
+    z-index: 1;
+}
+
+.second-err__span {
+    z-index: 0;
+}
+
+.back__p {
+    position: relative;
+    color: #006983;
+    top: 20px;
+    font-size: 3rem;
+    text-decoration: none;
+    transition: all 0.1s;
+    border-top: 1px solid #000000;
+}
+
+.back__p:hover {
+    color: #00698359;
+}
+
+.pg404__c p, .pg404__c a {
+    text-align: center;
+}
+
+
+/* font-family: 'Rajdhani', sans-serif; */

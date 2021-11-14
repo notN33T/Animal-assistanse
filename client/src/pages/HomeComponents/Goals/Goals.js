@@ -25,38 +25,38 @@ export default function Goals() {
 function Countries() {
   return (
     <div className="countries-c">
-      <a href="#">
+      <a >
         <div className="country">
           <img src={france} alt="france" />
           <span className="county-txt">France</span>
         </div>
       </a>
-      <a href="#">
+      <a >
         <div className="country">
           <img src={germany} alt="germany" />
           <span className="county-txt">Germany</span>
         </div>
       </a>
-      <a href="#">
+      <a >
         <div className="country">
           <img src={poland} alt="poland" />
           <span className="county-txt">Poland</span>
         </div>
       </a>
-      <a href="#">
+      <a >
         <div className="country">
           <img src={spain} alt="spain" />
           <span className="county-txt">Spain</span>
 
         </div>
       </a>
-      <a href="#">
+      <a >
         <div className="country">
           <img src={switzerland} alt="switzerland" />
           <span className="county-txt">Switzerland</span>
         </div>
       </a>
-      <a href="#">
+      <a >
         <div className="country">
           <img src={united_kingdom} alt="united-kingdom" />
           <span className="county-txt">UK</span>

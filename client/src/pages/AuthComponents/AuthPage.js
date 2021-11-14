@@ -3,10 +3,9 @@
 import React, { useContext, useState }            from 'react'
 import { AuthContext }                            from '../../context/AuthContext'
 import axios                                      from 'axios'
-import Flash                                      from '../Common/InfoFlash'
+import Flash                                      from '../Common/Flash/InfoFlash'
 import { Link }                                   from 'react-router-dom'
 import './css/AuthPage.css'
-
 export const AuthPage = () => {
   const auth = useContext(AuthContext)
   const [mError, setmError] = useState(undefined)

@@ -16,6 +16,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 100px 0;
 }
 footer .footer-c {
   height: 100%;
@@ -42,8 +43,10 @@ footer .footer-c .footer-copy-right {
 }
 footer .footer-c .footer-copy-right .footer-cr-txt {
   text-align: center;
+  letter-spacing: 1px;
   margin: 10px 0;
   color: #EFFFE9;
+  font-family: "Bebas Neue", cursive;
   cursor: default;
 }
 footer .footer-c .foooter-icons {

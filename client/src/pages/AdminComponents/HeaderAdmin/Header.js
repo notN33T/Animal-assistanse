@@ -1,7 +1,7 @@
 import React, {useState}    from 'react'
 import { Link }             from 'react-router-dom'
 import axios                from 'axios'
-import Flash                from '../../Common/InfoFlash'
+import Flash                from '../../Common/Flash/InfoFlash'
 import './css/Header-a.css'
 
 export default function Header({form, file}) {
