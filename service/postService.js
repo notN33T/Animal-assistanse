@@ -2,6 +2,23 @@ const Post        = require('../models/post-model')
 
 
 class PostService {
+    getOnePost(req, res, next) {
+      
+      try {
+        let title = req.params.postId
+        title = title.replace(/'%'/g, ' ')
+        title = title.replace('s:', '')
+        Post.find({title}, (err, docs) => {
+          res.json({postData: docs})
+        })
+
+      } catch(e) {
+        res.json({message: "Server error"})
+      }
+
+    }
+
+
     getAllPosts(req, res, next) {
         try {
             Post.find({}, (err, docs) => {

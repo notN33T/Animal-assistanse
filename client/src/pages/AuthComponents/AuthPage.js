@@ -4,6 +4,7 @@ import React, { useContext, useState }            from 'react'
 import { AuthContext }                            from '../../context/AuthContext'
 import axios                                      from 'axios'
 import Flash                                      from '../Common/InfoFlash'
+import { Link }                                   from 'react-router-dom'
 import './css/AuthPage.css'
 
 export const AuthPage = () => {
@@ -66,24 +67,23 @@ export const AuthPage = () => {
     <div className="App">
       <div className="logreg-bg"></div>
       <a href="/">
-        <h1 className="logreg-logo">Animal Assistance <br /> <span className="logreg-logo-down">save nature togehter</span></h1>
+        <h1 className="logreg-logo">Animal Assistance<br /> <span className="logreg-logo-down">save nature togehter</span></h1>
       </a>
       {typeOfForm === 'login' 
         ? <LoginForm 
-          form={form} 
-          changeHandler={changeHandler} 
-          loginHandler={loginHandler} 
-          changeForm={changeForm} 
-          mError={mError} 
+          form={form}
+          changeHandler={changeHandler}
+          loginHandler={loginHandler}
+          changeForm={changeForm}
         /> 
         : <RegisterForm 
           form={form} 
           changeHandler={changeHandler} 
           registerHandler={registerHandler} 
           changeForm={changeForm} 
-          mError={mError} 
       />}
       <h1 className="logreg-cr"> Created by: <br /> <span className="logreg-cr-down">Ugin PTN</span></h1>
+      {mError == undefined ? null : < Flash info={mError} />}
     </div>
   );
 }
@@ -92,10 +92,10 @@ export const AuthPage = () => {
 // Register form component
 
 
-function RegisterForm({ form, changeHandler, registerHandler, changeForm, mError }) {
+function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
   return (
     <div className="logreg-form-container">
-        <h1 className="hdn-logo">Animal Assistance 
+        <h1 className="hdn-logo"><Link to="/">Animal Assistance</Link> 
         <br /> <span className="logreg-logo-down">save nature togehter</span>
         </h1>
       <h1 className="form-header">New on our site?</h1>
@@ -129,7 +129,6 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm, mError
         <a className="go-to-else"
           onClick={() => changeForm('login')}>Have account?</a>
       </div>
-      {mError == undefined ? null : < Flash info={mError} />}
     </div>
   )
 }
@@ -137,10 +136,10 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm, mError
 
 // Login form component
 
-function LoginForm({ form, changeHandler, loginHandler, changeForm, mError }) {
+function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
   return (
     <div className="logreg-form-container">
-        <h1 className="hdn-logo">Animal Assistance 
+        <h1 className="hdn-logo"><Link to="/">Animal Assistance</Link>
         <br /> <span className="logreg-logo-down">save nature togehter</span>
         </h1>
       <h1 className="form-header">Welcome back</h1>
@@ -173,7 +172,6 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm, mError }) {
         <a className="go-to-else"
           onClick={() => changeForm('register')}>Create account</a>
       </div>
-      {mError == undefined ? null : < Flash info={mError} />}
     </div>
   )
 }

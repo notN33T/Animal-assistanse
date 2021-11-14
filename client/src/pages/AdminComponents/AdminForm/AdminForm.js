@@ -67,7 +67,14 @@ export default function AdminForm() {
                         className="input-img"
                         onChange={changeHandler}
                     />
-                    {form.img ? <div className="prev__img-c"><img src={prevImg} className="prev__img" onClick={deletImgHandler}/></div>  : null}
+
+                    {form.img ?
+                     <div className="prev__img-c">
+                        <img src={prevImg} className="prev__img" onClick={deletImgHandler}/> 
+                        <p className="img-hdn-delete">Press<br />to<br />delete</p> 
+                    </div>
+                    : null}
+
                 </div>
                 <textarea 
                     type="text" 

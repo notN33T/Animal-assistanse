@@ -7,6 +7,8 @@ const postRouter  = new Router()
 
 postRouter.get('/posts', PostService.getAllPosts)
 
+postRouter.get('/post:postId', PostService.getOnePost)
+
 postRouter.post('/createPost', PostService.createPost)
 
 postRouter.post('/uploadimage', upload, (req, res) => {

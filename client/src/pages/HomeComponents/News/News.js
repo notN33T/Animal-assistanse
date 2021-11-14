@@ -8,11 +8,10 @@ export default function News() {
   const [newPosts, setnewPosts] = useState([])
 
   useEffect(() => {
+
   axios.get('http://localhost:5000/apiposts/posts')
     .then(response => (setnewPosts(response.data.posts)))
-    .catch(function (error) {
-      console.log(error);
-    })
+      .catch(e => console.log(e))
   }, [])
 
   let gridItem = 1

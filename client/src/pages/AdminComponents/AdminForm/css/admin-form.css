@@ -8,6 +8,12 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.img-hdn-delete {
+  display: none;
+  margin-left: 10px;
+  opacity: 0.5;
+}
+
 .adm-form-c .input_title:focus {
   border-left: 1px solid #0000003d;
 }
@@ -159,5 +165,11 @@
 @media screen and (max-width: 900px) {
   .prev__img-c {
     width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 796px) {
+  .img-hdn-delete {
+    display: block;
   }
 }

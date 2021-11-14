@@ -8,10 +8,9 @@
 .allposts-container
     margin-bottom: 160px
     width: 100%
-    height: 1600px
     display: grid
     grid-template-columns: repeat(1, 300px 300px 300px 300px)
-    grid-template-rows: repeat(1, 400px 350px 400px 350px)
+    grid-template-rows: repeat(1, 500px 650px 500px 650px)
     gap: 15px 10px
     justify-content: center
     align-items: center
@@ -19,33 +18,26 @@
     @media screen and (max-width: 1474px)
         grid-template-columns: repeat(1, 200px 200px 200px 200px)
     @media screen and (max-width: 864px)
-        grid-template-columns: repeat(4, 150px)
-    @media screen and (max-width: 652px)
-        grid-template-columns: repeat(4, 120px)
-    @media screen and (max-width: 548px) 
-        grid-template-columns: repeat(1, 90%)
-        grid-template-rows: repeat(9, 300px)
-        height: 100%
         .post__wrapper
             grid-row-start: auto !important
             grid-column-start: auto !important
             grid-column-end: auto !important
-
-        
-    
-
-    
-
-
-
+        grid-template-columns: repeat(1, 60%)
+        grid-template-rows: repeat(9, 500px)
+    @media screen and (max-width: 652px)
+        grid-template-columns: repeat(1, 80%)
+        grid-template-rows: repeat(9, 500px)
+    @media screen and (max-width: 548px) 
+        grid-template-columns: repeat(1, 70%)
+        grid-template-rows: repeat(9, 400px)
 
     .post-container:hover
         transform: scale(1.1)
 
         .post-text
             padding-bottom: 50px
-            padding-left: 20px
-
+            padding-left: 30px
+        .post-title
     .grid-item-7:hover, .grid-item-8:hover
         .post-text
             padding-left: 40px
@@ -57,7 +49,7 @@
 
     .post-container
         position: relative
-        transition: all 0.2s
+        transition: all 0.17s
         height: 100%
         background-repeat: no-repeat
         background-size: cover
@@ -73,13 +65,16 @@
             box-sizing: border-box
             padding: 0 15px 30px 15px
             color: #fff
+            font-family: "Rajdhani", sans-serif
+            font-size: 1.4rem
             background-color: #000000 
-            transition: all 0.2s
+            transition: all 0.17s
 
             .post-title
                 position: relative
+                width: 80%
                 bottom: 0
-                right: -20px
+                right: 0px
                 padding: 10px 15px 10px 15px
                 background-color: #000000 
     .grid-item-1
@@ -90,6 +85,16 @@
         grid-row-start: 1
         grid-column-start: 3
         grid-column-end: 3
+        .post-text
+            padding-top: 100px
+            height: 100%
+            align-items: center
+            justify-content: center
+            background: none
+            p
+                right: 0 !important
+                background: none !important
+                font-size: 1.7rem
     .grid-item-3
         grid-row-start: 1
         grid-column-start: 4
@@ -98,21 +103,14 @@
         grid-row-start: 2
         grid-column-start: 1
         grid-column-end: 3
-
         .post-text
+            height: 100%
+            align-items: end
             justify-content: center
-            position: absolute
-            bottom: 0
-            right: 0
-            box-sizing: border-box
-            padding: 0 15px 30px 15px
-            color: #fff
-            transition: all 0.2s
-
-            .post-title
-                position: relative
-                padding: 10px 15px 10px 15px
-                
+            background: none
+            p
+                background: none !important
+                font-size: 2rem
     .grid-item-5
         grid-row-start: 2
         grid-column-start: 3
@@ -121,10 +119,27 @@
         grid-row-start: 3
         grid-column-start: 1
         grid-column-end: 1
+        .post-text
+            height: 100%
+            padding-top: 30px
+            justify-content: center
+            background: #000000
+            p
+                right: 0 !important
+                background: none !important
+                font-size: 2rem
     .grid-item-7
         grid-row-start: 3
         grid-column-start: 2
         grid-column-end: 5
+        .post-text
+            padding-top: 30px
+            height: 100%
+            align-items: flex-start
+            background: none
+            p
+                background: none !important
+                font-size: 1.7rem
     .grid-item-8
         grid-row-start: 4
         grid-column-start: 1

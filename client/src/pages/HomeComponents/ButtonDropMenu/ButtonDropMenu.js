@@ -1,12 +1,16 @@
-import React, { useState }      from 'react'
-import { FontAwesomeIcon }      from '@fortawesome/react-fontawesome'
-import { faListUl }             from '@fortawesome/free-solid-svg-icons'
-import { Link }                   from 'react-router-dom'
+import React, { useState, useContext, useCallback }       from 'react'
+import { FontAwesomeIcon }                                from '@fortawesome/react-fontawesome'
+import { faListUl }                                       from '@fortawesome/free-solid-svg-icons'
+import { AuthContext }                                    from '../../../context/AuthContext'
+import { Link }                                           from 'react-router-dom'
 
 const ButtonDropMenu = () => {
   const [dropdownOpen, setOpen] = useState(false);
-
+  const auth = useContext(AuthContext)
   const toggle = () => setOpen(!dropdownOpen);
+  const logoutHandler = useCallback(() => {
+    auth.logout()
+  }, [])
 
   if (dropdownOpen) {
     return (
@@ -17,8 +21,18 @@ const ButtonDropMenu = () => {
         <Link to="/" className="men-btn">Home</Link>
         <Link to="/about" className="men-btn">About</Link>
         <Link to="/donate" className="men-btn">Donate</Link>
-        <Link to="/profile" className="men-btn">Profile</Link>
-        <Link to="/logout" className="men-btn">Leave</Link>
+        {auth.isAuthenticated ?
+        <> <Link to="/profile" className="men-btn">Profile</Link> 
+            {auth.admin ? <Link to="/admin" className="men-btn">Admin</Link>: null}
+            <Link 
+            onClick={logoutHandler}
+            to="/auth"
+            className="men-btn">Leave</Link>
+        </> 
+        :<Link to="/auth" className="men-btn">Sign in</Link>}
+        
+        
+        
       </div>
     )
   }

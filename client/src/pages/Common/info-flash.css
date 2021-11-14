@@ -3,19 +3,18 @@
   opacity: 1;
   position: fixed;
   height: 80px;
-  width: 100%;
+  width: 100vw;
   display:flex;
   align-items: center;
   justify-content: center;
   background-color: rgb(255, 68, 68);
-  animation-name: flash-message;
   font-family: 'Bebas Neue', cursive; 
-  animation-duration: 3s;
   top: calc(100vh - 80px);
   cursor: default;
 }
 
 .flash-info {
+  position: fixed;
   color: white;
   font-size: 2rem;
 }
