@@ -35,9 +35,9 @@ class PostService {
         
           } catch (err) {
             console.log(err)
-            res.json(
-              { message: "err" }
-              )
+            res.json({ 
+              message: "err" 
+            })
           }
     }
 
@@ -50,10 +50,31 @@ class PostService {
           post.save()
       
         } else {
-          res.json([
-            {message: "halo"},
-          ])
+          res.json([{
+            message: "Post created"
+          }])
         }
+    }
+
+    async createComment(req, res, next) {
+      
+      const {fcomment, title} = req.body
+      const condidatesComment = fcomment.text
+      const condidatesUserName = fcomment.userName
+      const condidate = Post.findOne({ condidatesComment, condidatesUserName })
+
+      if(condidate) return res.json([{message:"Comment already exist"}])
+
+      Post.findOneAndUpdate(
+        {title: title},
+        {$push: { comments: fcomment }}, 
+        (err, docs) => {
+          err ? console.log(err) : res.json([{
+            message:"Comment created"
+          }])
+        }
+        ).clone()
+      
     }
 }
 

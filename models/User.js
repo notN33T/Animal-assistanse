@@ -3,8 +3,10 @@ const { Schema, model } = require('mongoose')
 const schema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  userName: {type: String, required: true},
+  admin: {type: Boolean, required: false, unique: false},
   token: { type: String, required: false, unique: true },
-  admin: {type: Boolean, required: false, unique: false}
+  avatar: {type: String, required: false, default: 'userThatNotLoggedIn.jpg'},
 }, {
   writeConcern: {
     w: 'majority',

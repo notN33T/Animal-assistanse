@@ -82,7 +82,7 @@ export default function AdminForm() {
                     placeholder="Title" 
                     className="input_title"
                     id="title" 
-                    maxLength="84" 
+                    maxLength="105" 
                     required
                     value={form.title}
                     onChange={changeHandler}
@@ -94,7 +94,7 @@ export default function AdminForm() {
                     placeholder="Text of the post" 
                     id="mainText" 
                     className="input__post-text"
-                    maxLength="4800"
+                    maxLength="6000"
                     required
                     value={form.mainText}
                     onChange={changeHandler}

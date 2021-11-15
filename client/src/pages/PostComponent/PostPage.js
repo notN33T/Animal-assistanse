@@ -1,29 +1,28 @@
-import React, {useState, useEffect, useCallback}    from 'react'
+import React, { useState, useEffect }               from 'react'
 import { useParams }                                from 'react-router-dom'
 import axios                                        from 'axios'
 import Loading                                      from '../Common/Loading/Loading'
 import Header                                       from '../HomeComponents/Header/Header'
+import Comments                                     from './Comments/Comments'
 import './css/post-c.css'
 
 export default function PostPage() {
-    const [ready, setReady] = useState(false)
     const [post, setPost] = useState(
-        {title: '', mainText: ``, img: ''}
+        { title: '', mainText: ``, img: ''}
     )
 
     const topicId = useParams().postId
 
     useEffect(() => {
-        setReady(false)
 
         axios.get(`http://localhost:5000/apiposts/posts${topicId}`)
-            .then(result => {console.log(result.data.postData[0].img); setPost({
+            .then(result => { setPost({
                 img: result.data.postData[0].img, 
                 mainText: result.data.postData[0].mainText,
-                title: result.data.postData[0].title    
-            }) })
-                .catch(e => console.log(e)) 
-        setReady(true)
+                title: result.data.postData[0].title,
+            })
+        }).catch(e => console.log(e)) 
+
     }, [])
 
     const postElement = 
@@ -43,16 +42,14 @@ export default function PostPage() {
         </div>
     </>
 
-    if(ready) {
-        return(
-            <>
-            <Header/>
-            <div className="post-page__c">
-                {postElement}
-            </div>
-            </>
-        )
-    }
-    return <Loading />
+    return(
+        <>
+        <Header/>
+        <div className="post-page__c">
+            {postElement}
+        <Comments/>
+        </div>
+        </>
+    )
 
 }

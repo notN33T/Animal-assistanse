@@ -32,6 +32,8 @@ class UserService {
             res.json([{
                 'token': accessToken,
                 'isAdmin': user.admin,
+                'userName': user.userName,
+                'avatar': user.avatar,
                 }])
 
 
@@ -42,31 +44,41 @@ class UserService {
     }
     
     async register(req, res, next) {
-        const {email, password} = req.body
+        const {email, password, userName} = req.body
 
-        const candidate = await User.findOne({ email })
+        let candidate = await User.findOne({ email })
         if(candidate) {
-            return res.json([{ message: "User alredy exist"}])
+            return res.json([{ message: "Email alredy taken"}])
+        }
+
+        candidate = await User.findOne({ userName })
+        if(candidate) {
+            return res.json([{ message: "Username alredy taken"}])
         }
 
         const hashedPassword = await bcrypt.hash(password, 15);
-        const user = new User({ email: email, password: hashedPassword, admin: false, token: email })
-        const accessToken = TokenService.createToken({email: email, password: hashedPassword})
+        const user = new User({ email: email, password: hashedPassword, userName: userName, admin: false, token: email })
+        const accessToken = TokenService.createToken({ email: email, userName: userName })
+
+        await user.save()
 
         await User.findOneAndUpdate(
             {token: user.email},
             {token: accessToken},
             (error, data) => {
-                error ? console.log(error) : console.log(data)
+                error ? console.log(error) : null
             }
             ).clone()
-        
-        user.save()
+
             try {
-                return res.json([{
+                res.json([{
                     'token': accessToken,
                     'isAdmin': false,
+                    'userName': userName,
+                    'avatar' : user.avatar,
                 }])
+                
+                return 
 
             } catch(e) {
                 console.log(e)

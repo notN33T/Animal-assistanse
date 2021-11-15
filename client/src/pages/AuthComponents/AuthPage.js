@@ -11,7 +11,7 @@ export const AuthPage = () => {
   const [mError, setmError] = useState(undefined)
   const [typeOfForm, setTypeOfForm] = useState('login')
   const [form, setForm] = useState({
-    email: '', password: ''
+    email: '', password: '', userName: '',
   })
 
   const loginHandler = async () => {
@@ -21,8 +21,7 @@ export const AuthPage = () => {
       { headers: { 'Authorization': `Bearer ${auth.token}` } })
         .then(response => response.data.map(part => 
           {
-          auth.login(part.token, part.isAdmin); 
-
+          auth.login(part.token, part.isAdmin, part.userName, part.avatar); 
           if (part.message === undefined) return
           setmError(part.message)
           setTimeout(() => {setmError(undefined)}, 2050)
@@ -40,7 +39,7 @@ export const AuthPage = () => {
       axios.post('http://localhost:5000/api/register', { ...form })
         .then(response => 
           response.data.map(part => {
-          auth.login(part.token, part.isAdmin);
+            auth.login(part.token, part.isAdmin, part.userName, part.avatar);
 
           if (part.message === undefined) return
           setmError(part.message)
@@ -100,6 +99,18 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
       <h1 className="form-header">New on our site?</h1>
       <div className="input-c">
         <input
+          key="reginput1"
+          placeholder="Enter name"
+          value={form.userName}
+          onChange={changeHandler}
+          type="text"
+          id="userName"
+          name="userName"
+          required />
+      </div>
+      <div className="input-c">
+        <input
+          key="reginput2"
           placeholder="Enter email"
           value={form.email}
           onChange={changeHandler}
@@ -110,6 +121,7 @@ function RegisterForm({ form, changeHandler, registerHandler, changeForm }) {
       </div>
       <div className="input-c">
         <input
+          key="reginput3"
           placeholder="Enter password"
           value={form.password}
           onChange={changeHandler}
@@ -144,6 +156,7 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
       <h1 className="form-header">Welcome back</h1>
       <div className="input-c">
         <input
+          key="loginput1"
           placeholder="Enter email"
           type="text"
           id="login"
@@ -154,6 +167,7 @@ function LoginForm({ form, changeHandler, loginHandler, changeForm }) {
       </div>
       <div className="input-c">
         <input
+          key="loginput2"
           placeholder="Enter password"
           type="password"
           id="password"

@@ -7,13 +7,13 @@ import Loading                        from '../pages/Common/Loading/Loading'
 import '../static/css/reset.css'
 
 function App() {
-  const { token, login, logout, admin, ready } = useAuth()
+  const { token, login, logout, admin, ready, avatar, userName } = useAuth()
   const isAuthenticated = !!token
   const routes = useRoutes(isAuthenticated, admin)  
   if (!!ready){
     return (
       <AuthContext.Provider value={{
-        token, login, logout, isAuthenticated, admin
+        token, login, logout, isAuthenticated, admin, avatar, userName
       }}> 
         <Router>  
           <div className="app-container">

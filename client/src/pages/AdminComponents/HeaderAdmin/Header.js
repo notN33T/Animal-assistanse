@@ -7,7 +7,7 @@ import './css/Header-a.css'
 export default function Header({form, file}) {
     const [error, setError] = useState(null)
     const postHandler = () => {
-        if(!form.tile || !form.mainText || !form.img){
+        if(!form.title || !form.mainText || !form.img){
             setError("Incorrect data")
             setTimeout(() => {setError(null)}, 2050)
             return
