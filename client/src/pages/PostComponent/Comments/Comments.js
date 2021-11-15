@@ -4,6 +4,7 @@ import { useParams }                     from 'react-router-dom'
 import axios                             from 'axios'
 import { AuthContext }                   from '../../../context/AuthContext'
 import Loading                           from '../../Common/Loading/Loading'
+import Flash                         from '../../Common/Flash/InfoFlash'    
 import './css/comments.css'
 
 
@@ -11,6 +12,7 @@ export default function Comments() {
     const auth = useContext(AuthContext)
     const [allcomments, setAllComments] = useState([])
     const [ready, setReady] = useState(true)
+    const [info, setInfo] = useState(null)
     const [fcomment, setFComment] = useState({
         text: '',
         owner: auth.userName,
@@ -40,12 +42,14 @@ export default function Comments() {
     )
 
     const createHandler = () => {
-        console.log("Comment created")
         axios.post('http://localhost:5000/apiposts/create-comment', {fcomment, title})
             .then(response => response.data.map(part => {
-                if(part.message != 'undefined') return (setAllComments([...allcomments, fcomment])) 
-
-                console.log(part.message)
+                if(part.message != 'undefined') {
+                    setInfo(part.message)
+                    setTimeout(() => { setInfo(null) }, 2050)
+                    return
+                }
+                setAllComments([...allcomments, fcomment])
             }))
         
     }
@@ -55,27 +59,27 @@ export default function Comments() {
     }
 
     if(ready)   return(
+            <>
         <div className="comments__c">
             {commentsElement}
             <div>
-            
-                <input 
-                    type="text"
-                    id="text"
-                    name="text"
-                    value={fcomment.text}
-                    onChange={changeHandler}
-                />
-                
-                
+                    <input 
+                        type="text"
+                        id="text"
+                        name="text"
+                        value={fcomment.text}
+                        onChange={changeHandler}
+                    />
                 </div>
-                <button
-                    onClick={createHandler}
-                    type="submit"
-                    id="create__btn"
-                    className="create__btn"
-                >Send</button>
+                    <button
+                        onClick={createHandler}
+                        type="submit"
+                        id="create__btn"
+                        className="create__btn"
+                    >Send</button>
                 </div>
+                {info ? <Flash info={info} /> : null }
+            </>
     )
     return (<Loading />)
 }

@@ -59,15 +59,18 @@ class PostService {
     async createComment(req, res, next) {
       
       const {fcomment, title} = req.body
+      const condidatesUserName = fcomment.owner
       const condidatesComment = fcomment.text
-      const condidatesUserName = fcomment.userName
-      const condidate = Post.findOne({ condidatesComment, condidatesUserName })
+
+      const condidate = await Post.findOne({ title,
+         'comments':{ $elemMatch:{text: condidatesComment, owner: condidatesUserName}
+      }})
 
       if(condidate) return res.json([{message:"Comment already exist"}])
 
       Post.findOneAndUpdate(
         {title: title},
-        {$push: { comments: fcomment }}, 
+        {$push: { comments: { ...fcomment } }}, 
         (err, docs) => {
           err ? console.log(err) : res.json([{
             message:"Comment created"
