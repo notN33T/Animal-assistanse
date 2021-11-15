@@ -4,14 +4,14 @@ import { useParams }                     from 'react-router-dom'
 import axios                             from 'axios'
 import { AuthContext }                   from '../../../context/AuthContext'
 import Loading                           from '../../Common/Loading/Loading'
-import Flash                         from '../../Common/Flash/InfoFlash'    
+import Flash                             from '../../Common/Flash/InfoFlash'    
 import './css/comments.css'
 
 
 export default function Comments() {
     const auth = useContext(AuthContext)
     const [allcomments, setAllComments] = useState([])
-    const [ready, setReady] = useState(true)
+    const [ready, setReady] = useState(false)
     const [info, setInfo] = useState(null)
     const [fcomment, setFComment] = useState({
         text: '',
@@ -27,21 +27,13 @@ export default function Comments() {
 
     useEffect(() => {
         axios.get(`http://localhost:5000/apiposts/posts${topicId}`)
-            .then(result => setAllComments(result.data.postData[0].comments))
-                .catch(e => console.log(e)) 
-    }, [])
+            .then(result => {setAllComments(result.data.postData[0].comments)})
+                .catch(e => console.log(e))
+        setReady(true)
+    }, [allcomments])
     
-    let commentId = 1
-    const commentsElement = allcomments.map(part => 
-    <div className="comment__c" key={commentId}>
-            <p>{part.avatar}</p>
-            <p>{part.owner}</p>
-            <p>{part.text}</p>
-            {commentId++}
-    </div>
-    )
-
     const createHandler = () => {
+        setReady(false)
         axios.post('http://localhost:5000/apiposts/create-comment', {fcomment, title})
             .then(response => response.data.map(part => {
                 if(part.message != 'undefined') {
@@ -51,36 +43,47 @@ export default function Comments() {
                 }
                 setAllComments([...allcomments, fcomment])
             }))
-        
     }
 
     const changeHandler = event => {
         setFComment({...fcomment, [event.target.name]: event.target.value})
     }
 
-    if(ready)   return(
-            <>
-        <div className="comments__c">
-            {commentsElement}
-            <div>
-                    <input 
-                        type="text"
-                        id="text"
-                        name="text"
-                        value={fcomment.text}
-                        onChange={changeHandler}
-                    />
-                </div>
-                    <button
-                        onClick={createHandler}
-                        type="submit"
-                        id="create__btn"
-                        className="create__btn"
-                    >Send</button>
-                </div>
-                {info ? <Flash info={info} /> : null }
-            </>
+    if(ready) return(
+    <>
+    <div className="comments__c">
+        {ready ? <CommentsContainer allcomments={allcomments}/> : null}
+        <div>
+                <input 
+                    type="text"
+                    id="text"
+                    name="text"
+                    value={fcomment.text}
+                    onChange={changeHandler}
+                />
+            </div>
+                <button
+                    onClick={createHandler}
+                    type="submit"
+                    id="create__btn"
+                    className="create__btn"
+                >Send</button>
+            </div>
+            {info ? <Flash info={info} /> : null }
+    </>
     )
     return (<Loading />)
 }
 
+function CommentsContainer({allcomments}) {
+    let commentId = 1
+    return(
+        allcomments.map(part => 
+        <div className="comment__c" key={commentId}>
+                <p>{part.avatar}</p>
+                <p>{part.owner}</p>
+                <p>{part.text}</p>
+                {commentId++}
+        </div>
+        ))
+}    
