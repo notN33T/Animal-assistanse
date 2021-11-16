@@ -57,7 +57,7 @@ button {
   border-radius: 10px;
   padding: 5px;
   background: #000000;
-  color: #EFFFE9;
+  color: #06bbc13a;
 }
 
 .hd-home {
@@ -72,7 +72,7 @@ button {
           flex-direction: row;
   font-size: 1.4rem;
   color: #000000;
-  background: #EFFFE9;
+  background: #06bbc13a;
 }
 .hd-home .nav-link2 {
   height: 100%;
@@ -85,7 +85,6 @@ button {
   width: 50%;
   margin-right: 20%;
   padding-top: 2px;
-  font-size: 1.4rem;
 }
 .hd-home .nav-link1 {
   margin-left: 20%;
@@ -101,7 +100,6 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  font-size: 1.4rem;
 }
 
 .nv-btn {
@@ -110,6 +108,8 @@ button {
   margin-top: 30px;
   text-decoration: none;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
   color: #000000;
   margin-left: 10px;
   margin-right: 10px;
@@ -168,7 +168,7 @@ header img:hover {
     border-radius: 10px !important;
     padding: 5px !important;
     background: #000000 !important;
-    color: #EFFFE9 !important;
+    color: #06bbc13a !important;
   }
   .active button {
     width: 50px !important;

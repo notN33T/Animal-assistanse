@@ -1,0 +1,95 @@
+$text-lw-cs: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif
+$text-up-cs: "Bebas Neue", cursive
+$txt-col: #050401
+
+.single-comment-c
+    display: flex
+    position: relative
+    flex-direction: row
+    margin: 20px 0
+    padding: 20px 5px
+    font-family: $text-up-cs
+    color: $txt-col
+    border-bottom: 0.0001rem solid #0000001f
+    cursor: default
+    .comment-date
+        position: absolute
+        top: 3px
+        font-family: $text-lw-cs
+        margin-left: 30px
+        font-size: 0.8rem
+        color: #05040177
+        word-spacing: 0px
+        letter-spacing: -1px
+        width: 100px
+    .comment-img-c
+        .comment-avatar
+            height: 100px
+            width: 100px
+            border-radius: 10px
+            overflow: hidden
+            img
+                width: 100%
+                height: auto
+
+.comments__c
+    width: 100%
+.comment-data-c
+    display: flex
+    flex-direction: column
+    margin-left: 10px
+.comment-owner
+    display: flex
+    flex-direction: row
+    margin-bottom: 5px
+    font-family: $text-lw-cs
+    word-spacing: 3px
+    padding-bottom: 10px
+    font-size: 1.2rem
+.comment-text
+    font-size: 1.6rem
+    font-family: $text-lw-cs
+.admin-st
+        color: #000000 !important
+        text-shadow: 0px 0px 1px #ff03dd
+        span 
+            color: $txt-col
+            text-shadow: none
+
+
+
+.leave-comment-form
+    display: flex
+    flex-direction: column
+    width: 100%
+
+    .leave-comment-ta
+        position: relative
+        box-sizing: border-box
+        padding: 10px
+        width: 100%
+        height: 100px
+        resize: none
+        font-size: 0.8rem
+        font-family: $text-lw-cs
+        outline: none
+        border: none
+        margin-bottom: 10px
+        border-radius: 10px
+        background-color: #cccccc5e
+        
+
+    .creat-btn
+        position: relative
+        box-sizing: border-box
+        border-radius: 20px
+        width: 200px
+        background-color: #9448BC
+        color: #fff
+        font-family: $text-up-cs
+        font-size: 1rem
+        letter-spacing: 1px
+        padding: 2px
+        border: none
+        outline: none
+        

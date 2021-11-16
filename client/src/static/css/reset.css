@@ -45,11 +45,11 @@ table {
 
 
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #97FF8D; 
+    background: #006983; 
 }
 
 ::-webkit-scrollbar-track {

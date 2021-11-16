@@ -6,7 +6,7 @@ const schema = new Schema({
   userName: {type: String, required: true},
   admin: {type: Boolean, required: false, unique: false},
   token: { type: String, required: false, unique: true },
-  avatar: {type: String, required: false, default: 'userThatNotLoggedIn.jpg'},
+  avatar: {type: String, required: false, default: 'defoultAvatar.jpg'},
 }, {
   writeConcern: {
     w: 'majority',

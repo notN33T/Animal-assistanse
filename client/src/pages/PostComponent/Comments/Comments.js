@@ -5,8 +5,8 @@ import axios                             from 'axios'
 import { AuthContext }                   from '../../../context/AuthContext'
 import Loading                           from '../../Common/Loading/Loading'
 import Flash                             from '../../Common/Flash/InfoFlash'    
+import moment                            from 'moment'
 import './css/comments.css'
-
 
 export default function Comments() {
     const auth = useContext(AuthContext)
@@ -52,38 +52,67 @@ export default function Comments() {
     if(ready) return(
     <>
     <div className="comments__c">
+        <CreateContainer 
+        createHandler={createHandler} 
+        changeHandler={changeHandler} 
+        fcomment={fcomment}
+        />
         {ready ? <CommentsContainer allcomments={allcomments}/> : null}
-        <div>
-                <input 
-                    type="text"
-                    id="text"
-                    name="text"
-                    value={fcomment.text}
-                    onChange={changeHandler}
-                />
-            </div>
-                <button
-                    onClick={createHandler}
-                    type="submit"
-                    id="create__btn"
-                    className="create__btn"
-                >Send</button>
-            </div>
-            {info ? <Flash info={info} /> : null }
+    </div>
+        {info ? <Flash info={info} /> : null }
     </>
     )
     return (<Loading />)
 }
 
 function CommentsContainer({allcomments}) {
-    let commentId = 1
+    const [commments, setComments] = useState(allcomments)
+    useEffect(() => {
+        setComments(allcomments.reverse())
+    }, [allcomments])
+
     return(
-        allcomments.map(part => 
-        <div className="comment__c" key={commentId}>
-                <p>{part.avatar}</p>
-                <p>{part.owner}</p>
-                <p>{part.text}</p>
-                {commentId++}
+        commments.map(part => 
+        <div className="single-comment-c" key={part.text}>
+            <div className="comment-img-c">
+                <p className="comment-avatar"><img src={`avatars/${part.avatar}`}/></p>
+            </div>
+            <div className="comment-data-c">
+                <p className={`comment-owner ${part.admin ? 'admin-st' : null}`}>
+                    {part.owner} 
+                    <span className="comment-date-sp"> 
+                    <p className="comment-date">    
+                        {moment(part.date).fromNow()}
+                    </p>
+                    </span>
+                </p>
+                <p className="comment-text">{part.text}</p>
+              
+            </div>
+              
         </div>
         ))
 }    
+
+function CreateContainer({ createHandler, changeHandler, fcomment }) {
+    return (
+    <div className="leave-comment-form">
+        <textarea 
+            type="text"
+            id="leave-comment-ta"
+            name="text"
+            placeholder="Type your comment there"
+            className="leave-comment-ta"
+            value={fcomment.text}
+            onChange={changeHandler}
+        />
+        <button
+            onClick={createHandler}
+            type="submit"
+            id="create-btn"
+            className="creat-btn">
+            Send
+        </button>
+    </div>
+    )
+}

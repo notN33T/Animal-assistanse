@@ -1,5 +1,5 @@
 .news-title {
-  margin: 100px 0px;
+  margin: 140px 0px 60px 0;
   font-size: 3rem;
   text-align: center;
   font-family: "Rajdhani", sans-serif;
@@ -25,9 +25,6 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 80px 0;
-  border: 6px dashed #000000;
-  border-left: 0;
-  border-right: 0;
   overflow: hidden;
 }
 

@@ -4,7 +4,7 @@ body {
 
 footer {
   background-color: #000000;
-  height: 100%;
+  height: 550px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -57,7 +57,7 @@ footer .footer-c .foooter-icons {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 35px;
+  margin-top: 270px;
   margin-bottom: 35px;
   padding-bottom: 35px;
   margin-left: 15%;
