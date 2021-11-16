@@ -13,9 +13,12 @@ function Header() {
 
   return (
     <header className="hd-home">
-      <Link to="/">
-        <img src={logo} alt="logo" />
-      </Link>
+      <div className="site-logo-c">
+        <Link to="/">
+          Animal <br /> <span className="site-logo-down">assistance</span> 
+        </Link>
+      </div>
+    
       <ButtonDropMenu/>
       <div className="nav-link1">
         <Link to="/" className="nv-btn">Home</Link>

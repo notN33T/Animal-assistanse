@@ -3,7 +3,6 @@ import React, { useState,
 import { useParams }                     from 'react-router-dom'
 import axios                             from 'axios'
 import { AuthContext }                   from '../../../context/AuthContext'
-import Loading                           from '../../Common/Loading/Loading'
 import Flash                             from '../../Common/Flash/InfoFlash'    
 import moment                            from 'moment'
 import './css/comments.css'
@@ -11,7 +10,6 @@ import './css/comments.css'
 export default function Comments() {
     const auth = useContext(AuthContext)
     const [allcomments, setAllComments] = useState([])
-    const [ready, setReady] = useState(false)
     const [info, setInfo] = useState(null)
     const [fcomment, setFComment] = useState({
         text: '',
@@ -29,11 +27,14 @@ export default function Comments() {
         axios.get(`http://localhost:5000/apiposts/posts${topicId}`)
             .then(result => {setAllComments(result.data.postData[0].comments)})
                 .catch(e => console.log(e))
-        setReady(true)
     }, [allcomments])
     
     const createHandler = () => {
-        setReady(false)
+        if((fcomment.text).length < 5) {
+            setInfo("Your comment to short")
+            setTimeout(() => { setInfo(null) }, 2050)
+            return
+        }
         axios.post('http://localhost:5000/apiposts/create-comment', {fcomment, title})
             .then(response => response.data.map(part => {
                 if(part.message != 'undefined') {
@@ -43,13 +44,14 @@ export default function Comments() {
                 }
                 setAllComments([...allcomments, fcomment])
             }))
+            setFComment({...fcomment, text: ''})
     }
 
     const changeHandler = event => {
         setFComment({...fcomment, [event.target.name]: event.target.value})
     }
 
-    if(ready) return(
+    return(
     <>
     <div className="comments__c">
         <CreateContainer 
@@ -57,12 +59,11 @@ export default function Comments() {
         changeHandler={changeHandler} 
         fcomment={fcomment}
         />
-        {ready ? <CommentsContainer allcomments={allcomments}/> : null}
+        <CommentsContainer allcomments={allcomments}/>
     </div>
         {info ? <Flash info={info} /> : null }
     </>
     )
-    return (<Loading />)
 }
 
 function CommentsContainer({allcomments}) {

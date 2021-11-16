@@ -6,22 +6,20 @@ $txt-col: #050401
     display: flex
     position: relative
     flex-direction: row
-    margin: 20px 0
+    margin: 20px 5%
     padding: 20px 5px
     font-family: $text-up-cs
     color: $txt-col
     border-bottom: 0.0001rem solid #0000001f
     cursor: default
     .comment-date
-        position: absolute
-        top: 3px
         font-family: $text-lw-cs
         margin-left: 30px
         font-size: 0.8rem
         color: #05040177
         word-spacing: 0px
         letter-spacing: -1px
-        width: 100px
+        width: 80px
     .comment-img-c
         .comment-avatar
             height: 100px
@@ -34,10 +32,17 @@ $txt-col: #050401
 
 .comments__c
     width: 100%
+    margin-bottom: 100px
+
 .comment-data-c
     display: flex
     flex-direction: column
     margin-left: 10px
+@media screen and (max-width: 420px)
+    .comments__c
+    .single-comment
+        width: 100%
+
 .comment-owner
     display: flex
     flex-direction: row
@@ -66,8 +71,8 @@ $txt-col: #050401
     .leave-comment-ta
         position: relative
         box-sizing: border-box
+        margin: 80px 20%
         padding: 10px
-        width: 100%
         height: 100px
         resize: none
         font-size: 0.8rem
@@ -92,4 +97,14 @@ $txt-col: #050401
         padding: 2px
         border: none
         outline: none
-        
+@media screen and (max-width: 1010px)
+    .leave-comment-ta
+        margin: 0 0 10px 0% !important
+@media screen and (max-width: 618px)
+    .leave-comment-ta
+        margin: 0% !important
+    .creat-btn
+        margin: 0
+        padding: 20px !important
+        width: 100% !important
+        border-radius: 0 !important
