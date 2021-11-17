@@ -1,5 +1,5 @@
 const Post        = require('../models/post-model')
-
+const ObjectId    = require('mongodb').ObjectId;
 
 class PostService {
     getOnePost(req, res, next) {
@@ -78,6 +78,32 @@ class PostService {
         }
         ).clone()
       
+    }
+
+    async deleteComment(req, res, next) {
+      const {id, title} = req.body
+      Post.findOneAndUpdate(
+        {title: title},
+        {$pull: { comments: { '_id': new ObjectId(id) } }}, 
+        (err, docs) => {
+          err ? console.log(err) : res.json([{
+            message:"Comment deleted"
+          }])
+        }
+        ).clone()
+    }
+
+    async updateComment(req, res, next) {
+      const {id, title} = req.body
+      Post.findOneAndUpdate(
+        {title: title},
+        {$pull: { comments: { '_id': new ObjectId(id) } }}, 
+        (err, docs) => {
+          err ? console.log(err) : res.json([{
+            message:"Comment deleted"
+          }])
+        }
+        ).clone()
     }
 }
 

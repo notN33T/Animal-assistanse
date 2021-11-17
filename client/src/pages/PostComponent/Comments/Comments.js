@@ -35,6 +35,11 @@ export default function Comments() {
             setTimeout(() => { setInfo(null) }, 2050)
             return
         }
+        if((fcomment.text).length > 200) {
+            setInfo("Your comment to big")
+            setTimeout(() => { setInfo(null) }, 2050)
+            return
+        }
         axios.post('http://localhost:5000/apiposts/create-comment', {fcomment, title})
             .then(response => response.data.map(part => {
                 if(part.message != 'undefined') {
@@ -45,6 +50,22 @@ export default function Comments() {
                 setAllComments([...allcomments, fcomment])
             }))
             setFComment({...fcomment, text: ''})
+            
+    }
+
+    const deleteHandler = event => {
+        console.log(event.target.value)
+        const id = event.target.value
+        axios.post('http://localhost:5000/apiposts/delete-comment', {id, title})
+        .then(response => response.data.map(part => {
+            if(part.message != 'undefined') {
+                setInfo(part.message)
+                setTimeout(() => { setInfo(null) }, 2050)
+                return
+            }
+            setAllComments({ allcomments })
+            
+        }))
     }
 
     const changeHandler = event => {
@@ -59,14 +80,14 @@ export default function Comments() {
         changeHandler={changeHandler} 
         fcomment={fcomment}
         />
-        <CommentsContainer allcomments={allcomments}/>
+        <CommentsContainer allcomments={allcomments} deleteHandler={deleteHandler}/>
     </div>
         {info ? <Flash info={info} /> : null }
     </>
     )
 }
 
-function CommentsContainer({allcomments}) {
+function CommentsContainer({allcomments, deleteHandler}) {
     const [commments, setComments] = useState(allcomments)
     useEffect(() => {
         setComments(allcomments.reverse())
@@ -74,23 +95,24 @@ function CommentsContainer({allcomments}) {
 
     return(
         commments.map(part => 
-        <div className="single-comment-c" key={part.text}>
+        <div className="single-comment-c" key={part.text + part.owner}>
             <div className="comment-img-c">
                 <p className="comment-avatar"><img src={`avatars/${part.avatar}`}/></p>
             </div>
             <div className="comment-data-c">
-                <p className={`comment-owner ${part.admin ? 'admin-st' : null}`}>
+                <h1 className={`comment-owner ${part.admin ? 'admin-st' : null}`}>
                     {part.owner} 
                     <span className="comment-date-sp"> 
                     <p className="comment-date">    
                         {moment(part.date).fromNow()}
                     </p>
                     </span>
-                </p>
+                </h1>
                 <p className="comment-text">{part.text}</p>
               
             </div>
-              
+              <button onClick={deleteHandler} value={part._id} className="com-del-bn"></button>
+              <button onClick={deleteHandler} value={part.text} className="com-edit-bn"></button>
         </div>
         ))
 }    
