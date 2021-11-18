@@ -13,9 +13,10 @@ class PostService {
         })
 
       } catch(e) {
-        res.json({message: "Server error"})
+        res.json({
+          message: 'Server error', status: 'error'
+        })
       }
-
     }
 
 
@@ -36,7 +37,7 @@ class PostService {
           } catch (err) {
             console.log(err)
             res.json({ 
-              message: "err" 
+              message: 'server error', status: 'error' 
             })
           }
     }
@@ -51,7 +52,7 @@ class PostService {
       
         } else {
           res.json([{
-            message: "Post created"
+            message: 'Post created', status: 'success'
           }])
         }
     }
@@ -66,14 +67,16 @@ class PostService {
          'comments':{ $elemMatch:{text: condidatesComment, owner: condidatesUserName}
       }})
 
-      if(condidate) return res.json([{message:"Comment already exist"}])
+      if(condidate) return res.json([{
+        message:'Comment already exist', status: 'error'
+      }])
 
       Post.findOneAndUpdate(
         {title: title},
         {$push: { comments: { ...fcomment } }}, 
         (err, docs) => {
           err ? console.log(err) : res.json([{
-            message:"Comment created"
+            message:'Comment created', status: 'success'
           }])
         }
         ).clone()
@@ -87,20 +90,30 @@ class PostService {
         {$pull: { comments: { '_id': new ObjectId(id) } }}, 
         (err, docs) => {
           err ? console.log(err) : res.json([{
-            message:"Comment deleted"
+            message:'Comment deleted', status: 'success'
           }])
         }
         ).clone()
     }
 
-    async updateComment(req, res, next) {
-      const {id, title} = req.body
+    async editComment(req, res, next) {
+      const {editedText, text, owner, title} = req.body
+
+      const condidate = await Post.findOne({ title,
+        'comments':{ $elemMatch:{text: editedText, owner: owner}
+     }})
+
+     if(condidate) return res.json([{
+       message:'Comment already exist', status: 'error'
+     }])
+
       Post.findOneAndUpdate(
-        {title: title},
-        {$pull: { comments: { '_id': new ObjectId(id) } }}, 
+        { title: title, 'comments.text': text, 'comments.owner': owner },
+        {$set: { 'comments.$.text': editedText } },
+        {arrayFilters: [{'comments.$.owmer': owner, 'comments.$.text': text}]}, 
         (err, docs) => {
           err ? console.log(err) : res.json([{
-            message:"Comment deleted"
+            message:'Comment edited', status: 'success'
           }])
         }
         ).clone()

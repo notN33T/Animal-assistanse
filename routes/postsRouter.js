@@ -15,6 +15,8 @@ postRouter.post('/create-comment', PostService.createComment)
 
 postRouter.post('/delete-comment', PostService.deleteComment)
 
+postRouter.post('/edit-comment', PostService.editComment)
+
 postRouter.post('/uploadimage', upload, (req, res) => {
     req.file ? res.json([{ message: "success" }]): res.json([{ message: "error" }])
 })

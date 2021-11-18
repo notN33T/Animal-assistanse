@@ -8,15 +8,15 @@ class UserService {
         try {
             const { email, password } = req.body
             const user = await User.findOne({ email })
-
+            
             if (!user) {
-                return res.json([{ message: "No such user" }])
+                return res.json([{ message: 'No such user', status: 'error' }])
             }
 
             const exist = await bcrypt.compare(password, user.password)
             
             if (!exist) {
-                return res.json([{ message: "Wrong password" }])
+                return res.json([{ message: 'Wrong password', status: 'error' }])
             }
             
             const accessToken = TokenService.createToken({email: user.email}) 
@@ -39,7 +39,7 @@ class UserService {
 
         } catch (err) {
             console.log(err)
-            return res.json([{message: `Server Error`}])
+            return res.json([{message: `Server Error`, status: 'error'}])
         }
     }
     
@@ -48,12 +48,12 @@ class UserService {
 
         let candidate = await User.findOne({ email })
         if(candidate) {
-            return res.json([{ message: "Email alredy taken"}])
+            return res.json([{ message: 'Email alredy taken', status: 'error'}])
         }
 
         candidate = await User.findOne({ userName })
         if(candidate) {
-            return res.json([{ message: "Username alredy taken"}])
+            return res.json([{ message: 'Username alredy taken', status: 'error'}])
         }
 
         const hashedPassword = await bcrypt.hash(password, 15);
@@ -83,7 +83,7 @@ class UserService {
             } catch(e) {
                 console.log(e)
                 return res.json([{
-                    message: 'Server register error'
+                    message: 'Server register error', status: 'error'
                 }])
             }
     }
