@@ -1,6 +1,6 @@
-const User =                  require('../models/User')
-const TokenService =          require('./tokenService')
-const bcrypt =                require('bcrypt')
+const User                = require('../models/User')
+const TokenService        = require('./tokenService')
+const bcrypt              = require('bcrypt')
 
 class UserService {
 

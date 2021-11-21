@@ -1,0 +1,124 @@
+.pg-hdr-c {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 5px #0000002c;
+          box-shadow: 0 0 5px #0000002c;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0px 0%;
+  padding: 10px 0;
+  width: 100%;
+  height: 500px;
+  background-color: #00D9FF;
+}
+
+.donate-bg {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 1;
+  margin: 0 20px 0 20px;
+  background: url("../media/donate-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 65%;
+  height: 500px;
+  opacity: 1;
+}
+
+.first-dnt-txt {
+  margin-top: 40px;
+  max-width: 500px;
+  padding: 20px 0px;
+  text-align: center;
+  font-size: 3.5rem;
+  font-family: "Bebas Neue", cursive;
+  text-shadow: 0 0 2px #000000;
+  color: white;
+  border-top: 1px solid #00d9ff;
+  border-bottom: 1px solid #00d9ff;
+}
+
+.donate-text-c {
+  position: relative;
+  width: 60%;
+  margin: 40px 20%;
+  padding: 20px;
+  -webkit-box-shadow: 0 0 10px #00000044;
+          box-shadow: 0 0 10px #00000044;
+}
+.donate-text-c .main-c-h1 {
+  font-family: "Bebas Neue", cursive;
+  padding: 20px;
+  font-size: 3rem;
+}
+.donate-text-c .main-c-p {
+  font-size: 1.5rem;
+  padding: 40px;
+  white-space: pre-line;
+}
+
+.donations-c {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  border: 10px solid #00d9ff;
+}
+
+.donate-ref {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #00d9ff;
+  text-decoration: none;
+  padding: 10px;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border-bottom: 1px solid #fff;
+  text-align: center;
+}
+.donate-ref:hover {
+  border-bottom: 1px solid #00d9ff;
+}
+
+@media screen and (max-width: 610px) {
+  .donate-text-c {
+    width: 90%;
+    margin: 40px 5%;
+  }
+
+  .main-c-p {
+    padding: 5px !important;
+  }
+}

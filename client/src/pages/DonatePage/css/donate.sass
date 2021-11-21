@@ -1,0 +1,88 @@
+$text-lw-cs: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif
+$text-up-cs: "Bebas Neue", cursive
+$txt-col: #050401
+
+.pg-hdr-c
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    box-shadow: 0 0 5px #0000002c
+    border-radius: 5px
+    box-sizing: border-box
+    margin: 0px 0%
+    padding: 10px 0
+    width: 100%
+    height: 500px
+    background-color: #00D9FF
+
+.donate-bg
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    box-sizing: border-box
+    z-index: 1
+    margin: 0 20px 0 20px
+    background: url('../media/donate-bg.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    width: 65%
+    height: 500px
+    opacity: 1
+
+.first-dnt-txt
+    margin-top: 40px
+    max-width: 500px
+    padding: 20px 0px
+    text-align: center
+    font-size: 3.5rem
+    font-family: $text-up-cs
+    text-shadow: 0 0 2px #000000
+    color: white
+    border-top: 1px solid #00d9ff
+    border-bottom: 1px solid #00d9ff
+
+.donate-text-c
+    position: relative
+    width: 60%
+    margin: 40px 20%
+    padding: 20px
+    box-shadow: 0 0 10px #00000044
+
+    .main-c-h1
+        font-family: $text-up-cs
+        padding: 20px
+        font-size: 3rem
+
+    .main-c-p
+        font-size: 1.5rem
+        padding: 40px
+        white-space: pre-line
+        
+.donations-c
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 20px
+    border: 10px solid #00d9ff
+.donate-ref
+    box-sizing: border-box
+    color: #00d9ff
+    text-decoration: none
+    padding: 10px
+    font-family: $text-up-cs
+    font-size: 2rem
+    transition: all 0.2s
+    border-bottom: 1px solid #fff
+    text-align: center
+    &:hover
+        border-bottom: 1px solid #00d9ff
+@media screen and (max-width:610px)
+    .donate-text-c
+        width: 90%
+        margin: 40px 5%
+    .main-c-p
+        padding: 5px !important

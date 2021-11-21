@@ -18,6 +18,7 @@ export default function SingleComment({part, deleteHandler, auth, title}) {
     }
     
     const sendEditHandler = () => { 
+        editHandler()
         axios.post('http://localhost:5000/apiposts/edit-comment', {editedText, text, owner, title})
         .then(response => response.data.map(part => {
             if(part.message != 'undefined') {
@@ -53,7 +54,7 @@ export default function SingleComment({part, deleteHandler, auth, title}) {
                     value={editedText}
                 />}
                  {!edit ? null
-                : <button onClick={sendEditHandler} className="edin-send-btn">Edit</button> }
+                : <button onClick={sendEditHandler} className="edit-send-btn">Edit</button> }
 
                 <div className="edit-btns">
                     {part.owner == auth.userName

@@ -19,3 +19,11 @@
   font-size: 2rem;
 }
 
+.success {
+  background-color: rgb(85, 255, 136);
+}
+
+.success .flash-info {
+  color: #000;
+}
+

@@ -57,6 +57,12 @@ class PostService {
         }
     }
 
+    async deletePost(req, res, next) {
+      const id = req.body.id
+      Post.findOneAndDelete({ '_id': new ObjectId(id) })
+
+    }
+
     async createComment(req, res, next) {
       
       const {fcomment, title} = req.body

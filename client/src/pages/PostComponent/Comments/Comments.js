@@ -65,7 +65,6 @@ export default function Comments() {
                 return
             }
             setAllComments({ allcomments })
-            
         }))
     }
 
@@ -89,9 +88,7 @@ export default function Comments() {
             title={title}/>
 
     </div>
-
     {info ? <Flash info={info} /> : null }
-    
     </>
     )
 }
