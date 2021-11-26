@@ -8,14 +8,13 @@ require('dotenv').config()
 const PORT = process.env.PORT || 5000
 
 const app = express();
-
 app.use(express.json())
 app.use(cors({
   origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
   credentials: true
 }));
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', "http://localhost:3000");
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Headers', true);
   res.header('Access-Control-Allow-Credentials', true);
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -28,10 +27,12 @@ app.use('/apiposts', postRouter);
 const start = async () => {
   try {
     await mongoose.connect(process.env.DB_URL)
-    app.listen(PORT, () => console.log(`Server started on ${PORT}`))
+    app.listen(PORT, () => console.log(`\n\n---- Server started on ${PORT} ----\n\n`))
   } catch (err) {
     console.log(err)
   }
 }
 
 start()
+
+module.exports = app // for test

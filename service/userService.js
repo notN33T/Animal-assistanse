@@ -25,7 +25,7 @@ class UserService {
             {token: user.token},
             {token: accessToken},
             (error, data) => {
-                error ? console.log(error) : console.log(data)
+                error ? console.log(error) : null
             }
             ).clone()
 

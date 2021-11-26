@@ -1,7 +1,7 @@
-import React, {useState}    from 'react'
-import { Link }             from 'react-router-dom'
-import axios                from 'axios'
-import Flash                from '../../Common/Flash/InfoFlash'
+import React, {useState, useContext}    from 'react'
+import { Link }                         from 'react-router-dom'
+import axios                            from 'axios'
+import Flash                            from '../../Common/Flash/InfoFlash'
 import './css/Header-a.css'
 
 export default function Header({form, file}) {
@@ -16,7 +16,7 @@ export default function Header({form, file}) {
         }
         const formData = new FormData()
         formData.append('img', file)
-        axios.post('http://localhost:5000/apiposts/uploadimage',  formData  )
+        axios.post('http://localhost:5000/apiposts/uploadimage',  formData )
         .then(response => response.data.map(part => {setInfo(part.message); setSuccess(part.status)}))
 
         axios.post('http://localhost:5000/apiposts/createPost',  {...form}  )

@@ -1,7 +1,5 @@
-const Router =                require('express').Router
-const User =                  require('../models/User')
-const jwt =                   require('jsonwebtoken')
-const UserService =           require('../service/userService')
+const Router                = require('express').Router
+const UserService           = require('../service/userService')
 
 const router = new Router()
 
