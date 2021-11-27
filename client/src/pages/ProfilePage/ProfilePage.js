@@ -21,7 +21,7 @@ export default function ProfilePage() {
         const userName = auth.userName
         axios.post('http://localhost:5000/apiposts/change-user-name', { userName, newUserName })
         .then(res => res.data.map(part => {if(part.message=='success'){
-            auth.login(auth.token, auth.isAdmin, newUserName, auth.avatar)
+            auth.login(auth.token, auth.isAdmin, newUserName, newUserName + '.jpg')
         }}))
     } 
 
@@ -39,6 +39,23 @@ export default function ProfilePage() {
         <>
         <Header/>
         <div className="profile-main-c">
+
+            <div className="profile-img-c">
+                <img src={'avatars/' + auth.avatar} alt="" />
+            </div>
+        
+            
+            <input
+                type="file" 
+                name="img" 
+                id="input-file" 
+                className="input-img"
+                onChange={changeHandler}
+            />
+            <button
+            onClick={changeAvatar}
+            >Change avatar</button>
+
             <p className="profile-user-name">
                 {auth.userName}
             </p>
@@ -54,18 +71,7 @@ export default function ProfilePage() {
             onClick={changeUserName}
             >Change username</button>
 
-            <img src={'avatars/' + auth.avatar} alt="" />
             
-            <input
-                type="file" 
-                name="img" 
-                id="input-file" 
-                className="input-img"
-                onChange={changeHandler}
-            />
-            <button
-            onClick={changeAvatar}
-            >Change avatar</button>
         </div>
         </>
     )
