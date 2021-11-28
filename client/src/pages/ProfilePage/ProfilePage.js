@@ -11,9 +11,8 @@ export default function ProfilePage() {
     const [newUserName, setNewUserName] = useState('')
 
     const changeHandler = event => {
-        if (event.target.name === 'img') {
-            setAvatar(event.target.files[0])
-        }
+        if (event.target.name === 'img') return setAvatar(event.target.files[0])
+        
         setNewUserName(event.target.value)
     }
 

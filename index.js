@@ -27,7 +27,10 @@ app.use('/apiposts', postRouter);
 const start = async () => {
   try {
     await mongoose.connect(process.env.DB_URL)
-    app.listen(PORT, () => console.log(`\n\n---- Server started on ${PORT} ----\n\n`))
+    app.listen(PORT
+    // , () => console.log(
+      // `\n\n---- Server started on ${PORT} ----\n\n`) //Disable for test
+    )
   } catch (err) {
     console.log(err)
   }

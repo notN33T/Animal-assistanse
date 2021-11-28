@@ -76,10 +76,11 @@ export default function Comments() {
     <>
     <div className="comments__c">
 
+        {auth.isAuthenticated ?
         <CreateContainer 
             createHandler={createHandler} 
             changeHandler={changeHandler} 
-            fcomment={fcomment}/>
+            fcomment={fcomment}/>: null}
 
         <CommentsContainer 
             allcomments={allcomments} 
