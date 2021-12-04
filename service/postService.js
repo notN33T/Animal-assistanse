@@ -49,18 +49,21 @@ class PostService {
         if (!candidate) {
           const post = new Post({ img, title, mainText })
           post.save()
+          res.json([{
+            message: 'Post created', status: 'success'
+          }])
       
         } else {
           res.json([{
-            message: 'Post created', status: 'success'
+            message: 'Post alredy created', status: 'error'
           }])
         }
     }
 
     async deletePost(req, res, next) {
-      const id = req.body.id
-      Post.findOneAndDelete({ '_id': new ObjectId(id) })
-
+      const id = req.body.postId
+      await Post.findOneAndDelete({ '_id': new ObjectId(id) })
+      return res.send([{message: 'post deleted', status: 'success'}])
     }
 
     async createComment(req, res, next) {
