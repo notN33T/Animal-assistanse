@@ -8,9 +8,11 @@ export default function Header({form, file}) {
     const [info, setInfo] = useState(null)
     const [success, setSuccess] = useState(null)
     const postHandler = () => {
-        if(!form.title || !form.mainText || !form.img){
+        if(form.title.length < 5 || form.title.length > 30 
+            || form.mainText.length < 50
+            || !form.img){
             setInfo('Incorrect data')
-            setSuccess('success')
+            setSuccess('error')
             setTimeout(() => {setInfo(null); setSuccess(null)}, 2050)
             return
         }

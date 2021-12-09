@@ -12,6 +12,7 @@ export default function Comments() {
     const auth = useContext(AuthContext)
     const [allcomments, setAllComments] = useState([])
     const [info, setInfo] = useState(null)
+    const [success, setSuccess] = useState(null)
     const [fcomment, setFComment] = useState({
         text: '',
         owner: auth.userName,
@@ -33,19 +34,22 @@ export default function Comments() {
     const createHandler = () => {
         if((fcomment.text).length < 5) {
             setInfo("Your comment to short")
-            setTimeout(() => { setInfo(null) }, 2050)
+            setSuccess('error')
+            setTimeout(() => { setInfo(null); setSuccess(null) }, 2050)
             return
         }
         if((fcomment.text).length > 200) {
             setInfo("Your comment to big")
-            setTimeout(() => { setInfo(null) }, 2050)
+            setSuccess('error')
+            setTimeout(() => { setInfo(null); setSuccess(null) }, 2050)
             return
         }
         axios.post('http://localhost:5000/apiposts/create-comment', {fcomment, title})
             .then(response => response.data.map(part => {
                 if(part.message != 'undefined') {
                     setInfo(part.message)
-                    setTimeout(() => { setInfo(null) }, 2050)
+                    setSuccess(part.status)
+                    setTimeout(() => { setInfo(null); setSuccess(null) }, 2050)
                     return
                 }
                 setAllComments([...allcomments, fcomment])
@@ -61,7 +65,8 @@ export default function Comments() {
         .then(response => response.data.map(part => {
             if(part.message != 'undefined') {
                 setInfo(part.message)
-                setTimeout(() => { setInfo(null) }, 2050)
+                setSuccess(part.status)
+                setTimeout(() => { setInfo(null); setSuccess(null) }, 2050)
                 return
             }
             setAllComments({ allcomments })
@@ -89,7 +94,7 @@ export default function Comments() {
             title={title}/>
 
     </div>
-    {info ? <Flash info={info} /> : null }
+    {info ? <Flash info={info} success={success} /> : null }
     </>
     )
 }

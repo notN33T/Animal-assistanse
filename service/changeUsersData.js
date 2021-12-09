@@ -23,8 +23,13 @@ class ChangeUsersData {
     }
     changeUserName(req, res, next) {
         const { userName, newUserName } = req.body
-        rename(req)
 
+        let candidate = User.findOne({ userName })
+        if(candidate) {
+            return res.json([{ message: 'Username alredy taken', status: 'error'}])
+        }
+
+        rename(req)
         Post.updateMany(
             { 'comments.owner': userName },
             {$set: { 'comments.$[x].owner': newUserName } },

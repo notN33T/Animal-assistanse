@@ -8,6 +8,7 @@ export default function SingleComment({part, deleteHandler, auth, title}) {
     const [edit, setEdit] = useState(false)
     const [editedText, setEditedText] = useState('')
     const [info, setInfo] = useState(null)
+    const [success, setSuccess] = useState('error')
     const text = part.text
     const owner = part.owner
     const editHandler = event => {
@@ -18,12 +19,26 @@ export default function SingleComment({part, deleteHandler, auth, title}) {
     }
     
     const sendEditHandler = () => { 
+        if(editedText.length < 5) {
+            setInfo('Comment to short')
+            setTimeout(() => { setInfo(null); setSuccess(null) }, 2050)
+            setSuccess('error')
+            return
+        }
+        
         editHandler()
         axios.post('http://localhost:5000/apiposts/edit-comment', {editedText, text, owner, title})
         .then(response => response.data.map(part => {
             if(part.message != 'undefined') {
                 setInfo(part.message)
-                setTimeout(() => { setInfo(null) }, 2050)
+                setSuccess(part.status)
+                setTimeout(() => { setInfo(null); setSuccess(null) }, 2050)
+                return
+            }
+            else {
+                setInfo(part.message)
+                setSuccess(part.status)
+                setTimeout(() => { setInfo(null); setSuccess(null) }, 2050)
                 return
             }
         }))
@@ -72,7 +87,7 @@ export default function SingleComment({part, deleteHandler, auth, title}) {
 
             </div>
         </div>
-            {info ? <Flash info={info} /> : null }
+            {info ? <Flash info={info} success={success} /> : null }
         </>
     )
 

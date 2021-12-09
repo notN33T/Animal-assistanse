@@ -71,15 +71,12 @@ class UserService {
             ).clone()
 
             try {
-                res.json([{
+                return res.json([{
                     'token': accessToken,
                     'isAdmin': false,
                     'userName': userName,
                     'avatar' : user.avatar,
                 }])
-                
-                return 
-
             } catch(e) {
                 console.log(e)
                 return res.json([{

@@ -29,8 +29,6 @@ class PostService {
             for(let i = 0; i < docs.length && i<9; i++ ) {
               allPosts.push(docs[i])
             }
-
-            allPosts
             res.json({posts: allPosts})
           })
         

@@ -35,6 +35,13 @@ export const AuthPage = () => {
   }
 
   const registerHandler = async () => {
+    if (form.userName.length < 6 || form.userName.length > 17
+      || form.email.length < 12 || form.email.length > 30  
+      || form.password.length < 8 || form.password.length > 20) {
+      setmError('Invalid data')
+      setTimeout(() => {setmError(undefined)}, 2050)
+      return
+    }
     try {
       axios.post('http://localhost:5000/api/register', { ...form })
         .then(response => 
