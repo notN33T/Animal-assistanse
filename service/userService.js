@@ -7,7 +7,7 @@ class UserService {
     async login(req, res, next) {
         try {
             const { email, password } = req.body
-            const user = await User.findOne({ email })
+            const user = await User.findOne({ email: email })
             
             if (!user) {
                 return res.json([{ message: 'No such user', status: 'error' }])

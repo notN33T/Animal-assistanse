@@ -21,10 +21,9 @@ class ChangeUsersData {
         return next()
 
     }
-    changeUserName(req, res, next) {
+    async changeUserName(req, res, next) {
         const { userName, newUserName } = req.body
-
-        let candidate = User.findOne({ userName })
+        let candidate = await User.findOne({ userName: newUserName })
         if(candidate) {
             return res.json([{ message: 'Username alredy taken', status: 'error'}])
         }
