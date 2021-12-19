@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.11068f8d.chunk.css",
+    "main.js": "/static/js/main.9c785763.chunk.js",
+    "main.js.map": "/static/js/main.9c785763.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7053dc05.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7053dc05.js.map",
+    "static/js/2.e2a56094.chunk.js": "/static/js/2.e2a56094.chunk.js",
+    "static/js/2.e2a56094.chunk.js.map": "/static/js/2.e2a56094.chunk.js.map",
+    "static/js/3.e6303fbf.chunk.js": "/static/js/3.e6303fbf.chunk.js",
+    "static/js/3.e6303fbf.chunk.js.map": "/static/js/3.e6303fbf.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.11068f8d.chunk.css.map": "/static/css/main.11068f8d.chunk.css.map",
+    "static/js/2.e2a56094.chunk.js.LICENSE.txt": "/static/js/2.e2a56094.chunk.js.LICENSE.txt",
+    "static/media/donate.css": "/static/media/donate-bg.3ec7e9fd.jpg",
+    "static/media/france.9a72b18d.png": "/static/media/france.9a72b18d.png",
+    "static/media/germany.8bd6fb87.png": "/static/media/germany.8bd6fb87.png",
+    "static/media/icon.e6937eb0.png": "/static/media/icon.e6937eb0.png",
+    "static/media/AuthPage.css": "/static/media/logreg-bg.81f0d783.jpg",
+    "static/media/WeekNews.css": "/static/media/nature-1.3328798f.jpg",
+    "static/media/poland.ead44aa6.png": "/static/media/poland.ead44aa6.png",
+    "static/media/spain.8a98451f.png": "/static/media/spain.8a98451f.png",
+    "static/media/switzerland.a0807271.png": "/static/media/switzerland.a0807271.png",
+    "static/media/united-kingdom.b9513887.png": "/static/media/united-kingdom.b9513887.png",
+    "static/media/upload-image.b9c76c7c.png": "/static/media/upload-image.b9c76c7c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7053dc05.js",
+    "static/js/2.e2a56094.chunk.js",
+    "static/css/main.11068f8d.chunk.css",
+    "static/js/main.9c785763.chunk.js"
+  ]
+}

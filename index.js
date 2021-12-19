@@ -22,7 +22,14 @@ app.use(function (req, res, next) {
 });
 
 app.use('/api', router);
-app.use('/apiposts', postRouter);
+app.use('/apiposts', postRouter)
+
+app.set('views', './public')
+app.use(express.static(__dirname + '/public'))
+
+app.get('/*', (req, res) => {
+  res.sendFile('./public/index.html',  { root: __dirname })
+})
 
 const start = async () => {
   try {
