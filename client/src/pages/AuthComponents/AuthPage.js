@@ -6,6 +6,7 @@ import axios                                      from 'axios'
 import Flash                                      from '../Common/Flash/InfoFlash'
 import { Link }                                   from 'react-router-dom'
 import './css/AuthPage.css'
+require('dotenv').config()
 export const AuthPage = () => {
   const auth = useContext(AuthContext)
   const [mError, setmError] = useState(undefined)
@@ -16,7 +17,7 @@ export const AuthPage = () => {
 
   const loginHandler = async () => {
     try {
-      axios.post('http://localhost:5000/api/login', 
+      axios.post(`${process.env.REACT_APP_DEFAULT_URL}/api/login`, 
       { ...form }, 
       { headers: { 'Authorization': `Bearer ${auth.token}` } })
         .then(response => response.data.map(part => 
@@ -43,7 +44,7 @@ export const AuthPage = () => {
       return
     }
     try {
-      axios.post('http://localhost:5000/api/register', { ...form })
+      axios.post(`${process.env.REACT_APP_DEFAULT_URL}/api/register`, { ...form })
         .then(response => 
           response.data.map(part => {
             auth.login(part.token, part.isAdmin, part.userName, part.avatar);

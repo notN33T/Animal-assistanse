@@ -5,7 +5,7 @@ import Loading                                      from '../Common/Loading/Load
 import Header                                       from '../HomeComponents/Header/Header'
 import Comments                                     from './Comments/Comments'
 import './css/post-c.css'
-
+require('dotenv').config()
 export default function PostPage() {
     const [post, setPost] = useState(
         { title: '', mainText: ``, img: ''}
@@ -15,7 +15,7 @@ export default function PostPage() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:5000/apiposts/posts${topicId}`)
+        axios.get(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/posts${topicId}`)
             .then(result => { setPost({
                 img: result.data.postData[0].img, 
                 mainText: result.data.postData[0].mainText,

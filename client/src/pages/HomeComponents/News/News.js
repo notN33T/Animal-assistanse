@@ -1,7 +1,7 @@
 import React                  from 'react'
 import axios                  from 'axios'
 import {useState, useEffect, 
-    useContext, useCallback}               from 'react'
+    useContext}               from 'react'
 import { AuthContext }        from '../../../context/AuthContext'
 import {Link}                 from 'react-router-dom'
 import './css/News.css'
@@ -14,13 +14,13 @@ export default function News() {
   const deletePostHandler = event => {
     const postId = event.target.value
     setId(postId)
-    axios.post('http://localhost:5000/apiposts/deletePost', {postId})
+    axios.post(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/deletePost`, {postId})
     console.log('Id ' + id)
     console.log('Postid ' + postId)
   }
 
   useEffect(() => {
-    axios.get('http://localhost:5000/apiposts/posts')
+    axios.get(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/posts`)
       .then(response => (setnewPosts(response.data.posts)))
         .catch(e => console.log(e))
   }, [id])

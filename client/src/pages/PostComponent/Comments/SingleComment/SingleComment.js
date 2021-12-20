@@ -27,7 +27,7 @@ export default function SingleComment({part, deleteHandler, auth, title}) {
         }
         
         editHandler()
-        axios.post('http://localhost:5000/apiposts/edit-comment', {editedText, text, owner, title})
+        axios.post(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/edit-comment`, {editedText, text, owner, title})
         .then(response => response.data.map(part => {
             if(part.message != 'undefined') {
                 setInfo(part.message)

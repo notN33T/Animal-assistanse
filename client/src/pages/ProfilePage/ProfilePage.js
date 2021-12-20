@@ -1,5 +1,5 @@
 import React, {useContext,
-    useEffect, useState}                        from 'react'
+               useState}                        from 'react'
 import Header                                   from '../HomeComponents/Header/Header'
 import {AuthContext}                            from '../../context/AuthContext'
 import axios                                    from 'axios'
@@ -30,7 +30,7 @@ export default function ProfilePage() {
         }
 
         const userName = auth.userName
-        axios.post('http://localhost:5000/apiposts/change-user-name', { userName, newUserName })
+        axios.post(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/change-user-name`, { userName, newUserName })
         .then(res => res.data.map(part => {if(part.status==='success'){
             auth.login(auth.token, auth.admin, newUserName, newUserName + '.jpg')
             setInfo(part.message)
@@ -54,7 +54,7 @@ export default function ProfilePage() {
         const formData = new FormData()
         formData.append('img', avatar)
         formData.append('userName', auth.userName)
-        axios.post('http://localhost:5000/apiposts/uploadavatar', formData)
+        axios.post(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/uploadavatar`, formData)
             .then(response => response.data.map(part =>{ if(part.message=='success'){
                 auth.login(auth.token, auth.admin, auth.userName, auth.userName + '.jpg')
             } }))

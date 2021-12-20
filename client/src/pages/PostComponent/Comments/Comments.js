@@ -7,7 +7,7 @@ import Flash                             from '../../Common/Flash/InfoFlash'
 import CommentsContainer                 from './CommentsContainer/CommentsContainer'
 import CreateContainer                   from './CreateContainer/CreateContainer'
 import './css/comments.css'
-
+require('dotenv').config()
 export default function Comments() {
     const auth = useContext(AuthContext)
     const [allcomments, setAllComments] = useState([])
@@ -26,7 +26,7 @@ export default function Comments() {
     title = title.replace(':', '')
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/apiposts/posts${topicId}`)
+        axios.get(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/posts${topicId}`)
             .then(result => {setAllComments(result.data.postData[0].comments)})
                 .catch(e => console.log(e))
     }, [allcomments])
@@ -44,7 +44,7 @@ export default function Comments() {
             setTimeout(() => { setInfo(null); setSuccess(null) }, 2050)
             return
         }
-        axios.post('http://localhost:5000/apiposts/create-comment', {fcomment, title})
+        axios.post(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/create-comment`, {fcomment, title})
             .then(response => response.data.map(part => {
                 if(part.message != 'undefined') {
                     setInfo(part.message)
@@ -61,7 +61,7 @@ export default function Comments() {
     const deleteHandler = event => {
         console.log(event.target.value)
         const id = event.target.value
-        axios.post('http://localhost:5000/apiposts/delete-comment', {id, title})
+        axios.post(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/delete-comment`, {id, title})
         .then(response => response.data.map(part => {
             if(part.message != 'undefined') {
                 setInfo(part.message)

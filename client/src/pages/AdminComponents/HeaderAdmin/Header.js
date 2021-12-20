@@ -3,6 +3,7 @@ import { Link }                         from 'react-router-dom'
 import axios                            from 'axios'
 import Flash                            from '../../Common/Flash/InfoFlash'
 import './css/Header-a.css'
+require('dotenv').config()
 
 export default function Header({form, file}) {
     const [info, setInfo] = useState(null)
@@ -18,10 +19,10 @@ export default function Header({form, file}) {
         }
         const formData = new FormData()
         formData.append('img', file)
-        axios.post('http://localhost:5000/apiposts/uploadimage',  formData )
+        axios.post(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/uploadimage`,  formData )
         .then(response => response.data.map(part => {setInfo(part.message); setSuccess(part.status)}))
 
-        axios.post('http://localhost:5000/apiposts/createPost',  {...form}  )
+        axios.post(`${process.env.REACT_APP_DEFAULT_URL}/apiposts/createPost`,  {...form}  )
         .then(response => response.data.map(part => {setInfo(part.message); setSuccess(part.status)}))
     }
     const flashElement = <Flash info={info} success={success}/>
